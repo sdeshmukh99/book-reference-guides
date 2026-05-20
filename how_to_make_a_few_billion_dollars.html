@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Make a Few Billion Dollars — Brad Jacobs — Learning Reference Guide</title>
+    <style>
+        :root {
+            --bg: #faf8f5;
+            --card-bg: #ffffff;
+            --accent-bg: #f3efe9;
+            --text: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #7a7a7a;
+            --border: #e6e0d6;
+            --gold: #b8893f;
+            --gold-soft: #d9b97a;
+            --red: #a8492e;
+            --green: #4a7a4a;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+            --nav-width: 260px;
+            --max-width: 1100px;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 17px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .main-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 40px 120px 40px;
+        }
+        @media (min-width: 721px) {
+            .main-wrapper {
+                margin-right: calc(var(--nav-width) + 20px);
+            }
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        .hero h1 {
+            font-size: 2.4em;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+        .hero .author {
+            font-size: 1.15em;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .hero .desc {
+            font-size: 1.05em;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 12px auto 0;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 1.6em;
+            font-weight: 400;
+            margin: 48px 0 16px;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            letter-spacing: -0.005em;
+        }
+        h3 {
+            font-size: 1.25em;
+            font-weight: 400;
+            margin: 36px 0 12px;
+            color: var(--text);
+        }
+        h4 {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin: 20px 0 8px;
+            color: var(--text-secondary);
+        }
+        .section-intro {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            background: var(--accent-bg);
+            border-radius: 6px;
+            font-size: 0.95em;
+            line-height: 1.55;
+        }
+
+        /* Theory prose */
+        .theory-prose {
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .theory-prose .subsection {
+            margin-bottom: 18px;
+            padding-left: 0;
+        }
+        .theory-prose .subsection h4 {
+            color: var(--gold);
+            font-weight: 400;
+            font-size: 1.1em;
+            margin-bottom: 6px;
+        }
+
+        /* Inline TOC */
+        .inline-toc {
+            background: var(--accent-bg);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0 32px;
+        }
+        .inline-toc h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: var(--text);
+            border: none;
+            padding: 0;
+        }
+        .inline-toc .toc-group {
+            margin: 10px 0 0;
+        }
+        .inline-toc .toc-group summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            padding: 4px 0;
+        }
+        .inline-toc .toc-group ul {
+            list-style: none;
+            padding-left: 16px;
+            margin: 4px 0 10px;
+        }
+        .inline-toc .toc-group li {
+            margin: 2px 0;
+            font-size: 0.9em;
+        }
+        .inline-toc a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .inline-toc a:hover {
+            border-bottom-color: var(--gold-soft);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px 28px 24px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 80px;
+        }
+        .card-label {
+            display: inline-block;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #fff;
+            background: var(--gold);
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .card-label.concept {
+            background: #6b7b8d;
+        }
+        .card-label.case-study {
+            background: var(--red);
+        }
+        .card-label.framework {
+            background: #5a6b4a;
+        }
+        .card-label.trend {
+            background: #7a5a8a;
+        }
+        .card-label.resource {
+            background: #5a7a8a;
+        }
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 1.25em;
+            border: none;
+            padding: 0;
+            color: var(--text);
+        }
+        .card .tagline {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95em;
+        }
+        .card .field {
+            margin: 10px 0 0;
+            font-size: 0.92em;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+        .card .field strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .card .field.warning strong {
+            color: var(--red);
+        }
+        .card .field.green strong {
+            color: var(--green);
+        }
+        .card .field.gold strong {
+            color: var(--gold);
+        }
+        .card .example-phrase {
+            background: var(--accent-bg);
+            padding: 10px 14px;
+            border-radius: 5px;
+            margin: 10px 0 0;
+            font-style: italic;
+            color: var(--text);
+            font-size: 0.92em;
+        }
+
+        /* Navigator */
+        #nav {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: var(--nav-width);
+            height: 100vh;
+            background: #f5f3ef;
+            border-left: 1px solid var(--border);
+            overflow-y: auto;
+            padding: 16px 14px 40px;
+            z-index: 100;
+            font-size: 0.8em;
+            line-height: 1.45;
+            scroll-behavior: smooth;
+        }
+        #nav h4 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin: 0 0 10px;
+            font-weight: 600;
+        }
+        #nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            transition: background 0.15s, color 0.15s;
+        }
+        #nav a:hover,
+        #nav a.active {
+            background: #e8e3da;
+            color: var(--text);
+        }
+        #nav .nav-cat {
+            margin-bottom: 12px;
+        }
+        #nav .nav-cat summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.88em;
+            padding: 3px 6px;
+            border-radius: 3px;
+            user-select: none;
+        }
+        #nav .nav-cat summary:hover {
+            background: #e8e3da;
+        }
+        #nav .nav-cat ul {
+            list-style: none;
+            padding-left: 10px;
+            margin: 2px 0 4px;
+        }
+        #nav .nav-cat li a {
+            font-size: 0.92em;
+        }
+        @media (max-width: 720px) {
+            #nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+                max-height: 44vh;
+                border-left: none;
+                border-bottom: 1px solid var(--border);
+                padding: 12px 16px 16px;
+                font-size: 0.78em;
+            }
+            #nav h4 {
+                margin-bottom: 6px;
+            }
+            .main-wrapper {
+                margin-right: 0;
+                padding: 0 16px 80px;
+            }
+            .hero {
+                padding: 40px 16px 30px;
+            }
+            .hero h1 {
+                font-size: 1.6em;
+            }
+            .card {
+                padding: 18px 14px 16px;
+            }
+            h2 {
+                font-size: 1.3em;
+                margin-top: 32px;
+            }
+            .inline-toc {
+                padding: 16px 14px;
+            }
+        }
+
+        /* Situational index */
+        .sit-index {
+            background: var(--accent-bg);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 32px 0;
+        }
+        .sit-index h3 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        .sit-index dl {
+            margin: 10px 0 0;
+        }
+        .sit-index dt {
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--text);
+            font-size: 0.95em;
+        }
+        .sit-index dd {
+            margin-left: 0;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 4px;
+        }
+        .sit-index dd a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .sit-index dd a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        /* Scroll-spy active */
+        .active-link {
+            color: var(--gold) !important;
+            font-weight: 600;
+        }
+
+        /* Paired-with inline link */
+        .paired-link {
+            color: var(--gold);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--gold-soft);
+        }
+        .paired-link:hover {
+            border-bottom-style: solid;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav" aria-label="Table of Contents">
+        <h4>Quick Navigator</h4>
+        <div class="nav-cat">
+            <details open>
+                <summary>Core Mindset</summary>
+                <ul>
+                    <li><a href="#love-vibe">The Love Vibe</a></li>
+                    <li><a href="#expect-positive">Expect Positive Outcomes</a></li>
+                    <li><a href="#give-break">Give Yourself a Break</a></li>
+                    <li><a href="#expand-possible">Expand the Possible</a></li>
+                    <li><a href="#feeling-brain">Feeling the Brain</a></li>
+                    <li><a href="#non-judgmental">Non-Judgmental Concentration</a></li>
+                    <li><a href="#radical-acceptance">Radical Acceptance</a></li>
+                    <li><a href="#stay-humble">Stay Humble</a></li>
+                    <li><a href="#lifelong-enrichment">Lifelong Enrichment Mindset</a></li>
+                    <li><a href="#thought-experiments">Nine Thought Experiments</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="nav-cat">
+            <details>
+                <summary>Decision &amp; Strategy</summary>
+                <ul>
+                    <li><a href="#embrace-problem">Embrace the Problem</a></li>
+                    <li><a href="#not-perfect">Acknowledge You're Not Perfect</a></li>
+                    <li><a href="#think-huge">Think Huge</a></li>
+                    <li><a href="#major-trend">Get the Major Trend Right</a></li>
+                    <li><a href="#step-outside-noise">Step Outside the Noise</a></li>
+                    <li><a href="#scalability">Scalability</a></li>
+                    <li><a href="#obscene-profits">Obscene Profits</a></li>
+                    <li><a href="#four-quadrants">M&A Four Quadrants</a></li>
+                    <li><a href="#ai-mothership">AI Is the Mothership</a></li>
+                    <li><a href="#trend-3d">3D Printing</a></li>
+                    <li><a href="#trend-ev">Electric Vehicles</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="nav-cat">
+            <details>
+                <summary>M&A &amp; Deal-Making</summary>
+                <ul>
+                    <li><a href="#ma-arbitrage">M&A Arbitrage</a></li>
+                    <li><a href="#ask-experts">Take Questions to Experts</a></li>
+                    <li><a href="#keep-pace">Keep Up the Pace</a></li>
+                    <li><a href="#pre-contact">Pre-Contact Checklist</a></li>
+                    <li><a href="#respect-seller">Respect the Seller</a></li>
+                    <li><a href="#force-fit">Don't Force-Fit Culture</a></li>
+                    <li><a href="#integration">Integration Framework</a></li>
+                    <li><a href="#overorganize">Overorganize</a></li>
+                    <li><a href="#early-feedback">Set Up Early Feedback</a></li>
+                    <li><a href="#dont-promise">Don't Promise What You Can't Deliver</a></li>
+                    <li><a href="#cover-flank">Cover Your Flank</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="nav-cat">
+            <details>
+                <summary>Case Studies</summary>
+                <ul>
+                    <li><a href="#cs-short-seller">XPO Short-Seller Attack</a></li>
+                    <li><a href="#cs-amerex">Amerex Oil Associates</a></li>
+                    <li><a href="#cs-hamilton">Hamilton Resources</a></li>
+                    <li><a href="#cs-united-waste">United Waste Systems</a></li>
+                    <li><a href="#cs-united-rentals">United Rentals</a></li>
+                    <li><a href="#cs-xpo-logistics">XPO Logistics</a></li>
+                    <li><a href="#cs-triple-integration">Triple Integration</a></li>
+                    <li><a href="#cs-hertz">Lunch with Hertz</a></li>
+                    <li><a href="#cs-revenue-loss">$600M Revenue Loss</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="nav-cat">
+            <details>
+                <summary>Team &amp; Culture</summary>
+                <ul>
+                    <li><a href="#superorganism">The Superorganism</a></li>
+                    <li><a href="#gratitude">Gratitude Conversations</a></li>
+                    <li><a href="#overcommunicate">Over-Communicate</a></li>
+                    <li><a href="#become-listener">Become a Much Better Listener</a></li>
+                    <li><a href="#entrepreneurial-spirit">Entrepreneurial Spirit</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="nav-cat">
+            <details>
+                <summary>Hiring &amp; Talent</summary>
+                <ul>
+                    <li><a href="#four-qualities">Four Hiring Qualities</a></li>
+                    <li><a href="#hunger">Hunger</a></li>
+                    <li><a href="#integrity-hire">Integrity</a></li>
+                    <li><a href="#collegiality">Collegiality</a></li>
+                    <li><a href="#multi-source">Multiple Source Assessment</a></li>
+                    <li><a href="#abc-players">A, B, and C Players</a></li>
+                    <li><a href="#fire-c">Fire C Players</a></li>
+                    <li><a href="#overpay">Overpay Employees</a></li>
+                    <li><a href="#incentive-design">Incentive Compensation</a></li>
+                    <li><a href="#pre-interview">45 Pre-Interview Questions</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="nav-cat">
+            <details>
+                <summary>Meetings &amp; Communication</summary>
+                <ul>
+                    <li><a href="#electric-meetings">Electric Meetings</a></li>
+                    <li><a href="#mor">Monthly Operating Reviews</a></li>
+                    <li><a href="#keep-small">Keep It Small</a></li>
+                    <li><a href="#surprise-mods">Surprise Moderators</a></li>
+                    <li><a href="#conflicting-opinions">Explore Conflicting Opinions</a></li>
+                    <li><a href="#crowdsource-ext">Crowdsourcing in External Meetings</a></li>
+                    <li><a href="#few-rules">Set Few Rules</a></li>
+                    <li><a href="#validate">Validate, Don't Denigrate</a></li>
+                    <li><a href="#board-access">Give the Board Access</a></li>
+                    <li><a href="#employee-surveys">Employee Surveys</a></li>
+                    <li><a href="#customer-feedback">Customer Feedback Loops</a></li>
+                    <li><a href="#dream-tech">Ask Customers Dream Tech</a></li>
+                    <li><a href="#morale-exercises">Morale-Boosting Exercises</a></li>
+                </ul>
+            </details>
+        </div>
+    </nav>
+
+    <div class="main-wrapper" id="top">
+
+        <!-- HERO -->
+        <header class="hero">
+            <h1>How to Make a Few Billion Dollars</h1>
+            <p class="author">Brad Jacobs</p>
+            <p class="desc">A comprehensive learning reference guide to the principles, tactics, frameworks, and case studies that built multiple multibillion-dollar companies — from oil arbitrage to logistics automation.</p>
+        </header>
+
+        <!-- CORE THEORY -->
+        <section id="core-theory">
+            <h2>Core Theory: The Bedrock</h2>
+            <div class="theory-prose">
+                <div class="subsection" id="theory-emotional">
+                    <h4>Emotional Mastery as a Business Weapon</h4>
+                    <p>Brad Jacobs builds from a conviction most business books skip: your emotional state <em>is</em> your decision-making apparatus. High-stress environments — deal negotiations, pricing disputes, integration conflicts — trigger physiological stress responses that narrow cognition. When you deliberately shift toward warmth, connection, and non-judgmental awareness, the stress response calms, and dialogue becomes constructive. Jacobs learned this not in a boardroom but officiating his daughter's wedding in Mexico's Yucatan Peninsula, then imported the memory into deal rooms. The love vibe isn't soft — it's a tactical intervention that keeps teams making clear decisions under fire.</p>
+                </div>
+                <div class="subsection" id="theory-cbt">
+                    <h4>Cognitive Behavior Therapy for Business Leaders</h4>
+                    <p>After stepping down from United Rentals in 2007, Jacobs fell into the only depression of his life. A friend's confession of suicidal thoughts drove him into two years of twice-weekly CBT therapy, where he learned that thought processes are riddled with cognitive distortions: catastrophizing, perfectionism, dichotomous thinking. He emerged with a toolkit — reframing negative automatic thoughts, giving yourself a break, radical acceptance — that he now treats as essential operating software for high-stakes leadership. The key insight: millions of years of evolution programmed humans to default to anxiety and fear. You can override that programming.</p>
+                </div>
+                <div class="subsection" id="theory-expansion">
+                    <h4>Expanding the Mind Before Narrowing on Decisions</h4>
+                    <p>Jacobs practices what he calls <em>gedankenexperiments</em> — thought experiments that expand awareness to the scale of the universe or contract it to the palm of a hand. The goal is a "bodiless mind floating in space," a state where the brain doesn't get stuck on any single problem. From this expanded vantage, you shed the nitty-gritty and size up what matters most. Einstein pictured riding a beam of light and arrived at E = mc². Jacobs credits this practice with his ability to make calm, high-stakes decisions during crises.</p>
+                </div>
+                <div class="subsection" id="theory-trends">
+                    <h4>Getting the Major Trend Right</h4>
+                    <p>The single most important strategic question Jacobs asks is whether the macro trend still exists. Every company he starts begins with obsessive study of the major trends that could threaten or propel the business. Tech is always a consideration — and increasingly the dominant one. The rate of technological change is accelerating: from stone tools two million years ago to nuclear power before 1950, and now AI reshaping everything. If you get the major trend right, you can mess up a lot of other things and still do well. Get it wrong, and nothing else saves you.</p>
+                </div>
+                <div class="subsection" id="theory-ma">
+                    <h4>The M&A Arbitrage Engine</h4>
+                    <p>Jacobs' wealth-creation model is built on a simple arbitrage: buy businesses at profit multiples lower than your stock's trading multiple, then significantly improve those businesses. The bingo quadrant is big, hairy deals with solvable problems. He stress-tests every element: base case must be excellent, downside must still be good, upside must be off the charts. Cultural compatibility is the single most important factor in integration, not financial engineering. Speed comes from doing heavy research before first contact so you can compress due diligence from months to weeks.</p>
+                </div>
+                <div class="subsection" id="theory-talent">
+                    <h4>Talent as the Ultimate Moat</h4>
+                    <p>Jacobs filters every hire through four qualities: intelligence, hunger, integrity, and collegiality. He personally interviews every headquarters hire, from front desk to C-suite. He "overpays" top talent and ties compensation to performance with uncapped incentives. The smartest thing he does as CEO is making sure most of the people he hires are smarter than he is. An empty seat is less damaging than a poor fit. A players hire A players; B players hire C players; and C players must be fired — kindly, but decisively.</p>
+                </div>
+                <div class="subsection" id="theory-communication">
+                    <h4>Communication as the Operating System</h4>
+                    <p>There's no such thing as over-communicating. Communication perennially outpolls even compensation in employee surveys. Jacobs runs meetings like his Bennington College seminars — 15 to 20 people, crowdsourced agendas, surprise moderators, open disagreement, and genuine connection at the close. The Monthly Operating Review is the backbone of how he runs businesses. Board members get full access to everyone in the organization. Deep listening — complete, non-judgmental attention — is a superpower most leaders never develop.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INLINE TOC -->
+        <div class="inline-toc" id="toc">
+            <h3>Full Card Index</h3>
+            <details class="toc-group" open>
+                <summary>Core Mindset &amp; Emotional Regulation</summary>
+                <ul>
+                    <li><a href="#love-vibe">The Love Vibe</a></li>
+                    <li><a href="#expect-positive">Expect Positive Outcomes</a></li>
+                    <li><a href="#give-break">Give Yourself a Break — CBT</a></li>
+                    <li><a href="#expand-possible">Expand the Possible — Thought Experiments</a></li>
+                    <li><a href="#feeling-brain">Feeling the Brain</a></li>
+                    <li><a href="#non-judgmental">Non-Judgmental Concentration</a></li>
+                    <li><a href="#radical-acceptance">Radical Acceptance</a></li>
+                    <li><a href="#stay-humble">Stay Humble</a></li>
+                    <li><a href="#lifelong-enrichment">Lifelong Enrichment Mindset</a></li>
+                    <li><a href="#thought-experiments">Nine Thought Experiments</a></li>
+                </ul>
+            </details>
+            <details class="toc-group">
+                <summary>Decision-Making &amp; Strategy</summary>
+                <ul>
+                    <li><a href="#embrace-problem">Embrace the Problem</a></li>
+                    <li><a href="#not-perfect">Acknowledge You're Not Perfect</a></li>
+                    <li><a href="#think-huge">Think Huge</a></li>
+                    <li><a href="#major-trend">Get the Major Trend Right</a></li>
+                    <li><a href="#step-outside-noise">Step Outside the Noise</a></li>
+                    <li><a href="#scalability">Scalability</a></li>
+                    <li><a href="#obscene-profits">Obscene Profits — How to Choose an Industry</a></li>
+                    <li><a href="#four-quadrants">The M&A Four Quadrants</a></li>
+                    <li><a href="#ai-mothership">AI Is the Mothership of the Future</a></li>
+                    <li><a href="#trend-3d">3D Printing / Additive Manufacturing</a></li>
+                    <li><a href="#trend-ev">Electric Vehicles</a></li>
+                </ul>
+            </details>
+            <details class="toc-group">
+                <summary>M&A &amp; Deal-Making</summary>
+                <ul>
+                    <li><a href="#ma-arbitrage">The M&A Arbitrage</a></li>
+                    <li><a href="#ask-experts">Take Questions to the Experts</a></li>
+                    <li><a href="#keep-pace">Keep Up the Pace, Not the Pressure</a></li>
+                    <li><a href="#pre-contact">Pre-Contact Research Checklist</a></li>
+                    <li><a href="#respect-seller">Respect the Seller</a></li>
+                    <li><a href="#force-fit">Don't Expect to Force-Fit a Culture</a></li>
+                    <li><a href="#integration">Integration — Cultural First, Then Operational</a></li>
+                    <li><a href="#overorganize">Overorganize</a></li>
+                    <li><a href="#early-feedback">Set Up Early Feedback Loops</a></li>
+                    <li><a href="#dont-promise">Don't Promise What You Can't Deliver</a></li>
+                    <li><a href="#cover-flank">Cover Your Flank — The Cerberus Tale</a></li>
+                </ul>
+            </details>
+            <details class="toc-group">
+                <summary>Case Studies</summary>
+                <ul>
+                    <li><a href="#cs-short-seller">XPO Short-Seller Attack</a></li>
+                    <li><a href="#cs-amerex">Amerex Oil Associates</a></li>
+                    <li><a href="#cs-hamilton">Hamilton Resources</a></li>
+                    <li><a href="#cs-united-waste">United Waste Systems</a></li>
+                    <li><a href="#cs-united-rentals">United Rentals — The 100-Bagger</a></li>
+                    <li><a href="#cs-xpo-logistics">XPO Logistics</a></li>
+                    <li><a href="#cs-triple-integration">XPO's Triple Integration</a></li>
+                    <li><a href="#cs-hertz">My Lunch with Hertz</a></li>
+                    <li><a href="#cs-revenue-loss">The $600 Million Revenue Loss</a></li>
+                </ul>
+            </details>
+            <details class="toc-group">
+                <summary>Team &amp; Culture</summary>
+                <ul>
+                    <li><a href="#superorganism">The Superorganism</a></li>
+                    <li><a href="#gratitude">Gratitude Conversations</a></li>
+                    <li><a href="#overcommunicate">Over-Communicate with the Full Team</a></li>
+                    <li><a href="#become-listener">Become a Much Better Listener</a></li>
+                    <li><a href="#entrepreneurial-spirit">The Entrepreneurial Spirit</a></li>
+                </ul>
+            </details>
+            <details class="toc-group">
+                <summary>Hiring &amp; Talent</summary>
+                <ul>
+                    <li><a href="#four-qualities">Intelligence, Hunger, Integrity, Collegiality</a></li>
+                    <li><a href="#hunger">Hunger — The Second Quality</a></li>
+                    <li><a href="#integrity-hire">Integrity — The Third Quality</a></li>
+                    <li><a href="#collegiality">Collegiality — The Fourth Quality</a></li>
+                    <li><a href="#multi-source">Use Multiple Sources for Assessment</a></li>
+                    <li><a href="#abc-players">A, B, and C Players</a></li>
+                    <li><a href="#fire-c">Fire C Players, but Be Nice</a></li>
+                    <li><a href="#overpay">Overpay Your Employees</a></li>
+                    <li><a href="#incentive-design">Incentive Compensation Design</a></li>
+                    <li><a href="#pre-interview">The 45 Pre-Interview Questions</a></li>
+                </ul>
+            </details>
+            <details class="toc-group">
+                <summary>Meetings &amp; Communication</summary>
+                <ul>
+                    <li><a href="#electric-meetings">Electric Meetings — Three Ingredients</a></li>
+                    <li><a href="#mor">Monthly Operating Reviews</a></li>
+                    <li><a href="#keep-small">Keep It Small, but Large Enough</a></li>
+                    <li><a href="#surprise-mods">Avoid the Spin — Surprise Moderators</a></li>
+                    <li><a href="#conflicting-opinions">Explore Conflicting Opinions</a></li>
+                    <li><a href="#crowdsource-ext">Leverage Crowdsourcing in External Meetings</a></li>
+                    <li><a href="#few-rules">Set Few Rules, Cast in Stone</a></li>
+                    <li><a href="#validate">Validate, Don't Denigrate</a></li>
+                    <li><a href="#board-access">Give the Board Access</a></li>
+                    <li><a href="#employee-surveys">Employee Surveys</a></li>
+                    <li><a href="#customer-feedback">Customer Feedback Loops</a></li>
+                    <li><a href="#dream-tech">Ask Customers Dream Tech</a></li>
+                    <li><a href="#morale-exercises">Morale-Boosting Exercises</a></li>
+                </ul>
+            </details>
+        </div>
+
+        <!-- ==================== CORE MINDSET ==================== -->
+        <section id="sect-mindset">
+            <h2>Core Mindset &amp; Emotional Regulation</h2>
+            <p class="section-intro">You're in a high-stakes situation — a deal is going sideways, tension is rising, your brain is spiraling into catastrophic thinking, or you're simply stuck and can't see a path forward. These are the inner tools Jacobs reaches for first, before any strategic or tactical move. They're designed to restore calm, widen perspective, and unlock clearer thinking.</p>
+
+            <!-- Love Vibe -->
+            <div class="card" id="love-vibe">
+                <span class="card-label">Principle</span>
+                <h3>The Love Vibe</h3>
+                <p class="tagline">Expansive emotional states neutralize conflict and lead to better business decisions.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> High-stress business environments create tension — during deal negotiations, pricing disputes, integration conflicts. When you deliberately shift your emotional state toward warmth and connection, the physiological stress response calms down. Your dialogue becomes more constructive because you're no longer operating from fight-or-flight.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs recalls officiating his daughter Yasmina's 2014 wedding in Mexico's Yucatan Peninsula. He asked guests to imagine all instances of love from the beginning of time, then all love existing right now, then all love billions of years into the future — and pantomime tossing it all at the bride and groom. He uses that same memory mid-negotiation: when tension flares over indemnifications or pricing, he takes a breath and tunes into the love he felt at that wedding. The conversation shifts.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> A team operating in the love vibe makes better decisions, resolves conflict faster, and sustains energy through brutal deal cycles.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You notice tension escalating during a deal discussion. Someone's getting positional. The room is getting tight.</div>
+                <div class="field"><strong>How to counter or respond:</strong> Pause. Return mentally to a moment of intense love or connection. It doesn't have to be a wedding — any memory of deep warmth works. The shift is internal first; the room follows.</div>
+                <div class="field green"><strong>What success looks like:</strong> A negotiation that was heading toward impasse softens and becomes collaborative without anyone conceding anything material.</div>
+                <div class="example-phrase">"Let's take a breath here. We're all trying to get to the same place."</div>
+            </div>
+
+            <!-- Expect Positive Outcomes -->
+            <div class="card" id="expect-positive">
+                <span class="card-label">Technique</span>
+                <h3>Expect Positive Outcomes — Reframing Negative Automatic Thoughts</h3>
+                <p class="tagline">Your brain defaults to catastrophe because of ancient survival programming. You can override it.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Aaron Beck and Albert Ellis (twentieth-century psychotherapists who pioneered cognitive behavior therapy, or CBT) showed that negative automatic thoughts — "I'm inferior, I'm defective, I'm a loser" — surface automatically in most people, especially dynamic personalities. These thoughts feel like reality but are almost always overblown and represent only one perspective. Millions of years of evolution programmed humans to default to anxiety and fear as a survival mechanism. We haven't evolved out of it.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs uses a two-step process. First, acknowledge the negativity as your natural self-critical psychology kicking in. Second, challenge the validity of that perspective — is this fear fact-based, or is it inherited survival instinct misfiring?</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> A calmer, more rational state of mind. Better business decisions because you're not operating from imposter syndrome or catastrophizing.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You catch yourself thinking in absolutes — "I'm doomed," "It's hopeless," "I'll never pull this off." That's the signal.</div>
+                <div class="example-phrase">"What was the happiest moment of your day?" — Martin Seligman's reframe of the bedtime question for children, which Jacobs adopted for his own family with dramatic results.</div>
+                <div class="field"><strong>Paired with:</strong> <a class="paired-link" href="#give-break">Give Yourself a Break</a> (cognitive distortions), <a class="paired-link" href="#radical-acceptance">Radical Acceptance</a>.</div>
+            </div>
+
+            <!-- Give Yourself a Break -->
+            <div class="card" id="give-break">
+                <span class="card-label">Technique</span>
+                <h3>Give Yourself a Break — CBT for Business Leaders</h3>
+                <p class="tagline">Learn to spot cognitive distortions before they wreck your decisions.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> After stepping down from United Rentals in 2007, Jacobs became depressed for the first and only time in his life — no deal going, no clear next move. A friend's confession of suicidal thoughts drove him to read extensively about psychology, which led to two years of twice-weekly CBT therapy. He learned that thought processes are riddled with cognitive distortions: catastrophizing (inflating small problems into enormous impediments), perfectionism (anything less than perfect execution causes intense frustration), and dichotomous thinking (rigid all-or-nothing views).</div>
+                <div class="field"><strong>What it looks like in practice:</strong> When anxious, Jacobs asks himself: "What's the worst that can happen, and how would I cope with that?" Or: "If a friend had a similar worry, how would I advise them to handle it?" The distance between yourself and the anxiety source allows more objective thinking about positive outcomes.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You stop demanding unrealistic perfection from yourself, your family, your team, your vendors, and your shareholders. Mental equilibrium becomes sustainable even while pursuing enormous goals.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're beating yourself up. You're furious at a team member for a minor mistake. You're paralyzed because conditions aren't perfect.</div>
+                <div class="field green"><strong>What success looks like:</strong> Jacobs says he became much happier in middle age when he stopped expecting unrealistic perfection from himself and everyone around him.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Confusing acceptance of imperfection with lowering standards. The point is not to tolerate mediocrity — it's to stop self-defeating overreaction to inevitable goof-ups.</div>
+            </div>
+
+            <!-- Expand the Possible -->
+            <div class="card" id="expand-possible">
+                <span class="card-label">Technique</span>
+                <h3>Expand the Possible — Thought Experiments (Gedankenexperiments)</h3>
+                <p class="tagline">Train your brain to move nimbly among variables by thinking in vast arcs of time and space.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs practices intentional daydreaming — visualizing space expanding to the scale of the universe or contracting to fit in the palm of his hand, visualizing the evolution of everything from the Big Bang 13.8 billion years ago until now. The goal is to feel like what hypnotherapist Milton Erickson called a "bodiless mind floating in space." This creates a sense of fluid time and space so the brain doesn't get stuck on any single problem.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs meditates about 30 minutes a day — 15 morning, 15 night — spending much of that time in gedankenexperiments. He also has a piece of art called <em>Cluster</em> by Lincoln Schatz (a Chicago artist) in his entrance hall: four TV monitors superimposing feeds from 25 seconds, 25 weeks, 25 months, and 25 years ago. Watching it creates a playful, feather-light mental state.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> With expanded awareness, you shed the nitty-gritty and size up what matters most. Without it, your mind gets hung up on problems and you make worse decisions.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You feel stuck, tunnel-visioned, fixated on a single problem with no perspective shift available.</div>
+                <div class="field green"><strong>What success looks like:</strong> Einstein pictured riding a beam of light and arrived at E = mc². Jacobs credits this practice with his ability to make calm, high-stakes decisions during crises.</div>
+            </div>
+
+            <!-- Feeling the Brain -->
+            <div class="card" id="feeling-brain">
+                <span class="card-label">Technique</span>
+                <h3>Feeling the Brain</h3>
+                <p class="tagline">Close your eyes and direct your awareness to your brain itself for instant rejuvenation and creative explosions.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs invented this technique based on how the brain communicates with different body parts. Your hands have extraordinarily complex dialogue with your brain (fine motor skills require constant back-and-forth signaling). Staring at your hands for a few minutes can trigger dissociative, trance-like experiences because of that strong connection. Instead of directing awareness to your hands, you direct it to the brain itself — closing your eyes and allowing your mind to merge with its physical counterpart, "feeling" it like a tactile sensation.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> The effect is a spontaneous explosion of rich, unusual experiences. Jacobs reports slipping into synesthesia — seeing sounds, hearing colors, smelling emotions. Even when tired or not in the zone, he can close his eyes, feel his brain, and be instantly energized.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Rejuvenation and unleashed creativity, available on demand.</div>
+            </div>
+
+            <!-- Non-Judgmental Concentration -->
+            <div class="card" id="non-judgmental">
+                <span class="card-label">Technique</span>
+                <h3>Non-Judgmental Concentration</h3>
+                <p class="tagline">Put all your attention on one thing, without judging it as good or bad. Stress drops, clarity rises.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> This is the first step Jacobs takes when a thorny issue arises. You focus on one thing to the exclusion of everything else — your body, your mind, your emotions, the person you're speaking with, the business environment. Crucially, you refrain from projecting bias. A fire at comfortable distance feels warm (brain says "good"). A fire burning your hand hurts (brain says "bad"). It's not the fire that's good or bad — it's the effect on you. Non-judgmental concentration trains the brain to realize things simply exist, independent of you.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Lower stress, better objectivity, more efficient work because you're not distracted by judgmentalism.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're brooding over what happened or worrying about what might happen instead of seeing what's actually in front of you.</div>
+                <div class="field"><strong>Paired with:</strong> <a class="paired-link" href="#radical-acceptance">Radical Acceptance</a> — this is the gateway practice.</div>
+            </div>
+
+            <!-- Radical Acceptance -->
+            <div class="card" id="radical-acceptance">
+                <span class="card-label">Principle</span>
+                <h3>Radical Acceptance</h3>
+                <p class="tagline">Accept reality as it is — not as you wish it were — before trying to change it.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Drawn from Marsha Linehan's (psychologist who developed Dialectical Behavior Therapy) core principle of radical acceptance, which Jacobs and his wife learned at mindfulness workshops. It means being fully present in the moment, letting go of the illusion of control, and acknowledging facts as they are even when you want them to be different. For oil traders, it was: "Block out how much you won or lost on your trade and focus on the best thing to do right now."</div>
+                <div class="field"><strong>What it looks like in practice:</strong> In the late 1990s, Jacobs bought road-rental companies (barricades, cones, striping) expecting Congress's TEA-21 infrastructure act to unleash $600 billion in spending. Only about a third was spent, in dribs and drabs. Instead of hoping the money would eventually flow, he radically accepted the $500 million loss and sold the companies.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You stop gambling on wishful thinking. You make logical, forward-looking decisions based on what's likely to happen next, plus risk management. Everything else is gambling, and most gamblers lose.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're holding onto a position or investment because of how much you've already put in, not because the forward-looking case makes sense.</div>
+                <div class="field"><strong>Paired with:</strong> <a class="paired-link" href="#non-judgmental">Non-Judgmental Concentration</a> (the gateway practice to radical acceptance).</div>
+            </div>
+
+            <!-- Stay Humble -->
+            <div class="card" id="stay-humble">
+                <span class="card-label">Principle</span>
+                <h3>Stay Humble</h3>
+                <p class="tagline">The feeling of being invincible is the worst thing that can happen to your decision-making.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> After winning — surviving a short-seller attack, closing a big deal, posting record results — the temptation is to feel invincible. Jacobs frames this as the single most dangerous state a leader can be in.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> After reconnecting with Bill Dixon (jazz musician and his closest teacher at Bennington College), Jacobs — flush with early success as an oil broker, living at the Olympic Tower across from St. Patrick's Cathedral in New York — expected Dixon to be impressed. Instead, Dixon said: "You're wasting your life. You could have been a good musician. You had talent. What are you chasing this silly money stuff for?" Jacobs let the comment stand, tried not to cry, and has revisited it ever since as a touchstone. He keeps a Friedrich Kunath artwork in his office with a Jean Louis Agassiz quote: "I can't afford to waste my time making money."</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Value is relative. Keeping that perspective prevents the hubris that destroys decision-making after success.</div>
+                <div class="example-phrase">"Thinking you know it all is a trap, because you don't — at least I don't. If you stay humble, you'll keep advancing."</div>
+            </div>
+
+            <!-- Lifelong Enrichment Mindset -->
+            <div class="card" id="lifelong-enrichment">
+                <span class="card-label">Principle</span>
+                <h3>The Lifelong Enrichment Mindset — Rhode Island Governor's School</h3>
+                <p class="tagline">"You can waste the next couple months, or you can go all in and do the best work you've ever done. But you have to decide if you want it."</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> The summer after eighth grade, Jacobs attended the Rhode Island Governor's School for the Gifted in Art and Music. On the first night, a leader told the group they had a choice: party and coast, or go all in and do something game-changing. Nearly all the students took it seriously. Jacobs learned to get in touch with creativity, take risks, utilize improvisation, manage time, find motivation, care about quality, be inspired by people around him, and discover what "all in" means — the connection between intensity of focus and end result.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "I still feel like a kid on the first day of that summer enrichment program. I can do anything I want with my time, but I have the opportunity to run as hard as I can at whatever's important to me — and I do."</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> "We have it in our own hands to either make life meaningful or just pass time until we die."</div>
+            </div>
+
+            <!-- Nine Thought Experiments -->
+            <div class="card" id="thought-experiments">
+                <span class="card-label resource">Resource</span>
+                <h3>Nine Thought Experiments (Appendix A)</h3>
+                <p class="tagline">Mind exercises designed to open your brain to thinking in novel ways — from riding the Big Bang to discovering you share 50% of your DNA with a banana.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Nine exercises to be done in a relaxed, quiet state: (1) Picture yourself at the Big Bang, expanding at the speed of light, cooling into atoms, feeling gravity clumping you into stars. (2) Picture a star exploding five billion years ago, its stardust forming our Sun, Solar System, and everything on Earth. (3) Imagine every grain of sand on Earth as a star, multiplied by ten — that's how many stars exist (about one septillion). (4) Expand awareness step by step from your body to the room to the building to the country to Earth to the Milky Way to the Virgo Supercluster to the entire universe to an infinite multiverse. (5) Picture being pulled into a black hole — zero mass, infinite density, time and space obliterated — while somehow maintaining individual consciousness. (6) Contemplate that none of your 30 trillion cells (except brain cells) will be the same in seven years. Stomach cells replaced weekly, skin monthly, liver every six weeks, red blood cells every four months. (7) Visualize yourself as your grandmother, then your grandmother's grandmother, all the way back 195,000 years to the first humans. (8) Go back 10,000 generations to find the common ancestor shared by all eight billion people alive today. (9) About 50% of banana DNA is identical to human DNA — because at some distant point, you and the banana shared a common ancestor.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Your brain becomes less tethered to thinking by rote, allowing wider perspective, greater calm, and more space for creativity and business success.</div>
+            </div>
+        </section>
+
+        <!-- ==================== DECISION-MAKING & STRATEGY ==================== -->
+        <section id="sect-strategy">
+            <h2>Decision-Making &amp; Strategy</h2>
+            <p class="section-intro">You're facing a major choice — which industry to enter, whether to pursue a deal, how to size an opportunity, or whether the ground under your business is shifting. These are the strategic lenses Jacobs uses to evaluate opportunities, spot trends, and commit to big moves.</p>
+
+            <!-- Embrace the Problem -->
+            <div class="card" id="embrace-problem">
+                <span class="card-label">Principle</span>
+                <h3>Embrace the Problem</h3>
+                <p class="tagline">Problems are assets to run toward, not obstacles to avoid. The biggest opportunities live inside the biggest, hairiest problems.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs' most important business mentor, Ludwig Jesselson (who ran Phillip Brothers / Phibro, then the largest commodity trading company in the world, until his death in 1993), told him over lunch: "If you want to make money in the business world, you need to get used to problems, because that's what business is. It's actually about finding problems, embracing and even enjoying them — because each problem is an opportunity to remove an obstacle and get closer to success."</div>
+                <div class="field"><strong>What it looks like in practice:</strong> A fellow CEO described M&A in four quadrants defined by size and risk. Big, low-risk deals don't exist. Small, low-risk deals can't make you much money. Small, hairy deals aren't worth the risk. The bingo quadrant is big, hairy deals — if you can find one with solvable problems, that's where the real money is.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You stop being paralyzed by setbacks. You start actively seeking out the messes other people run from — and you build enormous value by solving them.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> Your initial reaction to a major setback is overwhelming frustration. That's the signal to pivot: "Great! This is an opportunity to create a lot of value."</div>
+                <div class="field green"><strong>What success looks like:</strong> Tackling it head-on: Where are the inefficiencies? Where can my team reduce defects? Do I have the right people in key positions?</div>
+                <div class="example-phrase">"The bingo quadrant is the big, hairy deals. If you can find a big, hairy deal with solvable problems, that's where the real money is."</div>
+            </div>
+
+            <!-- Acknowledge You're Not Perfect -->
+            <div class="card" id="not-perfect">
+                <span class="card-label">Principle</span>
+                <h3>Acknowledge You're Not Perfect — Three Impediments to Effective Leadership</h3>
+                <p class="tagline">Self-awareness means recognizing three beliefs that will sink you.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs identifies three cognitive traps that derail leaders: <strong>(1) The belief that you're right, no matter what.</strong> Rigid thinking doesn't work in turbulent environments. You need to zig and zag opportunistically, even if it means completely rethinking a former premise. <strong>(2) The belief that others must hold the same opinions you do.</strong> Dialectical thinking — looking at something from different perspectives and interpreting it in multiple ways that are all valid — is what you need instead. Richard Feynman (Nobel Prize-winning physicist) captured it: "We are trying to prove ourselves wrong as quickly as possible, because only in that way can we find progress." <strong>(3) The belief that every inch of a potential course of action must be analyzed before you act.</strong> A CEO who waits for perfect terms and ideal conditions before acting creates corporate constipation.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You avoid paralysis, groupthink, and stubbornness. You build a culture where respectful disagreement leads to better answers.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're refusing to change your mind despite new evidence. Your team has stopped pushing back. You're delaying decisions waiting for perfect data.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Confusing decisiveness under uncertainty with recklessness. The point is not to skip analysis — it's to not wait for perfect analysis.</div>
+            </div>
+
+            <!-- Think Huge -->
+            <div class="card" id="think-huge">
+                <span class="card-label">Principle</span>
+                <h3>Think Huge</h3>
+                <p class="tagline">Your goals should be bigger than what you currently think you can accomplish.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Oversized goals paradoxically help you achieve them because they force a level of specificity and commitment that moderate goals don't. Jacobs pushes: How much money exactly? By when? How will you feel when you have it? What will you spend it on, invest in, donate to? Whose lives will you improve?</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "Envision what a few billion dollars actually looks like — a ballroom stacked to the ceiling with $100 bills."</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Narrow focus. Tuning out distractions. The ambition itself becomes a filter for what deserves your time.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're spreading yourself across too many moderate goals instead of committing fully to the biggest one.</div>
+                <div class="example-phrase">"If I had tried to do everything I wanted to, I never would have accomplished anything big. Narrow your focus to your most important dreams and tune out everything else."</div>
+            </div>
+
+            <!-- Get the Major Trend Right -->
+            <div class="card" id="major-trend">
+                <span class="card-label">Principle</span>
+                <h3>Get the Major Trend Right</h3>
+                <p class="tagline">You can mess up a lot of things in business and still do well as long as you get the big trend right.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> This comes directly from Ludwig Jesselson, Jacobs' mentor. Every company Jacobs starts begins with obsessive study of the major trends that could threaten or propel the business. Tech is always a consideration — and increasingly the dominant one. The rate of technological change is accelerating: stone tools two million years ago, fire one million years ago, shelters 500,000 years ago, then the abacus, compass, gunpowder, printing press, steam engines, electricity, telephones, computers, nuclear power — all before 1950.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs asks: Is the industry growing much faster than GDP? What's the scalability path from a few million to tens of billions? Are there advantages of size and economies of scale? Is there an M&A opportunity? Is there a technology threat or opportunity or both? What multiples will I pay for acquisitions, and is that a large enough discount from my expected trading multiple?</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> If you get the major trend right, you can make mistakes elsewhere and still succeed. If you get it wrong, nothing else saves you.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're spending all your time optimizing operations but haven't seriously examined whether the macro tailwind still exists.</div>
+                <div class="example-phrase">"Be a futurist and figure out the bullish and bearish trends driving your industry."</div>
+            </div>
+
+            <!-- Step Outside the Noise -->
+            <div class="card" id="step-outside-noise">
+                <span class="card-label">Principle</span>
+                <h3>Step Outside the Noise</h3>
+                <p class="tagline">The biggest risk in trend-spotting isn't lack of information — it's that the implications are so big people can't mentally grasp them.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Humans have an ingrained tendency to discount change and believe things will stay the same. Thomas Watson (former chairman of IBM) said in 1943: "I think there is a world market for maybe five computers." Clifford Stoll (a digital forensics pioneer) wrote in <em>Newsweek</em> in 1995 that the internet was missing "salespeople" — the year after Jeff Bezos started Amazon. Trend-spotting failure happens even to the smartest people in the most relevant industries.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs estimates the odds are "better than 50-50" that <em>Homo sapiens</em> will go extinct this century, probably by merging with tech to create a new species. He's not being flippant — 99.9% of all species that ever lived on Earth no longer exist.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Keeping perspective on how radically things can change prevents you from being blindsided. It also prevents you from dismissing massive opportunities as implausible.</div>
+            </div>
+
+            <!-- Scalability -->
+            <div class="card" id="scalability">
+                <span class="card-label">Principle</span>
+                <h3>Scalability — The First Thing to Study</h3>
+                <p class="tagline">Big industries matter because even a small chunk of a huge, growing industry is still big.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs looks for scalability as one of the first criteria in any business plan. Can you envision taking it from a few million to tens of billions? Is the industry growing faster than GDP so you get top-line growth just by showing up? Is the base price/volume combination realistic for profitability, and can you significantly increase margin over time? Are there advantages of size and economies of scale?</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "I like big industries because even a small chunk of a huge, growing industry is still big." The truck brokerage market was $350 billion addressable. The waste management industry had the top two players each making half a billion in annual profit.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You avoid the trap of optimizing a small opportunity. Even brilliant execution in a tiny market won't make billions.</div>
+            </div>
+
+            <!-- Obscene Profits -->
+            <div class="card" id="obscene-profits">
+                <span class="card-label">Principle</span>
+                <h3>"Obscene Profits" — How to Choose an Industry</h3>
+                <p class="tagline">Find industries where the leaders are already making enormous profits, then figure out a way in.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In 1979, Jacobs half-watched the CBS Evening News report on how the Iran hostage crisis was swelling oil refiner profits. Exxon had just reported the first-ever quarterly earnings over $1 billion. The words "obscene profits" flashed on screen. He thought: "That sounds pretty good!" A decade later, he saw a report on the waste management industry's top two companies making half a billion in annual profit. Same trigger, same response.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> It's not sophisticated analysis that draws you in first — it's the recognition that enormous amounts of money are being made in a sector. Then you study whether there's a way for you to participate.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Every company Jacobs built — Amerex, Hamilton, United Waste, United Rentals, XPO — started with the recognition that the industry had capacity for enormous profit.</div>
+            </div>
+
+            <!-- M&A Four Quadrants -->
+            <div class="card" id="four-quadrants">
+                <span class="card-label">Principle</span>
+                <h3>The M&A Four Quadrants</h3>
+                <p class="tagline">Big low-risk deals don't exist. The money is in big, hairy deals with solvable problems.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> A fellow CEO framed M&A in four quadrants defined by size and risk: (1) Big, low-risk deals — everyone wants them, but they don't exist. (2) Small, low-risk deals — exist but can't make much money because of size. (3) Small, hairy deals — worst quadrant; limited reward, stacked odds. (4) Big, hairy deals — the bingo quadrant. If you can find one with solvable problems, that's where the real money is.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Rearrange your brain to lean into the big hairy deals. Figure out how to cut off the hair and de-risk. Be flexible, fearless, open-minded.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're avoiding a deal because it looks messy. Ask: Is the mess solvable? If yes, that's probably where the value is.</div>
+            </div>
+
+            <!-- AI Is the Mothership -->
+            <div class="card" id="ai-mothership">
+                <span class="card-label">Principle</span>
+                <h3>AI Is the Mothership of the Future</h3>
+                <p class="tagline">AI is the dominant megatrend. It will replace most human functions that can be broken into rules, processes, and logical decisions.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs believes most of what paralegals and even lawyers do will be automated. Many jobs in journalism, advertising, and communications will become obsolete. Ironically, AI also puts tech jobs at risk, including coding. Industries that benefit strongly: healthcare, retailing, manufacturing. Industries less affected near-term: homebuilding (you still need a physical bed, shower, toilet). He goes further: CEOs will eventually be replaced by AI too. Every function that can be broken down into rules, systematic processes, and logical decision-making based on historical results can be replaced.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs cites Ray Kurzweil (futurist, inventor, and computer scientist at Google) and his concept of "the Singularity" — the moment when machines and humans could merge. After reading Kurzweil's 2006 book <em>The Singularity Is Near</em>, Jacobs calls it the most impactful book he's read.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> CEOs who invest heavily in tech and get ahead of automation trends build companies that dominate their industries. Those who don't become irrelevant.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Don't chase every innovation. Prioritize capitalizing on the most impactful trends in your specific industry.</div>
+            </div>
+
+            <!-- 3D Printing -->
+            <div class="card" id="trend-3d">
+                <span class="card-label trend">Trend Analysis</span>
+                <h3>3D Printing / Industrial Additive Manufacturing</h3>
+                <p class="tagline">A slow-building megatrend that will fundamentally reshape global supply chains by enabling local autonomous manufacturing.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> 3D printing has gone from a joke ("endlessly ten years away") to printing dental crowns in an hour, hearing aids, prostheses, and structurally critical jet parts out of metal. As costs drop, Jacobs expects it to enable local, on-demand manufacturing — goods could be made in your basement or at Costco, with digital specifications transmitted instead of physical goods shipped. This shifts logistics from bricks-and-mortar to an information industry.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Reduced complexity, time, and cost in supply chains. De-risked links in the process. Domestically manufactured goods replace many cheap imports.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Geopolitical implications are massive. This model weakens China because demand for cheap overseas labor evaporates.</div>
+            </div>
+
+            <!-- Electric Vehicles -->
+            <div class="card" id="trend-ev">
+                <span class="card-label trend">Trend Analysis</span>
+                <h3>Electric Vehicles</h3>
+                <p class="tagline">Emotionally satisfying but economically and environmentally more complicated than the narrative suggests.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> XPO tested EV trucks from a major manufacturer. Drivers love them — quiet, safe, clean, powerful. But they cost about three times diesel trucks. Not competitive without huge government subsidies, and with the U.S. tens of trillions in debt, where does that money come from? More EVs mean more electricity needed, including from coal and gas plants. Old batteries end up in landfills and don't biodegrade. China controls over 60% of global lithium and cobalt refining capacity.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Western nations spending tens of trillions on emissions reductions while China, India, and Russia pollute more, accomplishing nothing for the planet and just transferring wealth.</div>
+            </div>
+        </section>
+
+        <!-- ==================== M&A & DEAL-MAKING ==================== -->
+        <section id="sect-ma">
+            <h2>M&A &amp; Deal-Making</h2>
+            <p class="section-intro">You're about to pursue an acquisition — or you're in the thick of one. Speed matters, culture is the hidden deal-killer, and the wrong move can cost billions. These are Jacobs' hard-won tactics for sourcing, evaluating, negotiating, and integrating acquisitions at scale.</p>
+
+            <!-- M&A Arbitrage -->
+            <div class="card" id="ma-arbitrage">
+                <span class="card-label">Principle</span>
+                <h3>The M&A Arbitrage — How to Create Tremendous Shareholder Value</h3>
+                <p class="tagline">Buy businesses at profit multiples lower than your stock's trading multiple, then significantly improve those businesses.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> The arbitrage between your cost of capital and the multiple you can buy companies at is the biggest value-creation lever in a roll-up. Improving profitability of the acquired business is the second-biggest lever. Jacobs stress-tests every element: base case must be excellent, downside must still be good for the company, upside must be off the charts. He won't accept any significant chance that an acquisition won't hit at least its base-case projections.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> They use ten years of the target's earnings at zero growth as a baseline. Then assume organic revenue growth rate, achievable margin, and cumulative cash flow over ten years. Projections must be substantially higher than current performance — either through synergies, better operating, or both. There's no such thing as a sweet deal without a clear path to significant growth.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Consistent, repeatable value creation across hundreds of acquisitions.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> If an acquisition doesn't create shareholder value by producing a high return on invested capital, thrill customers, differentiate the offering, or fill a strategic gap, it just makes you bigger, not better.</div>
+                <div class="field warning"><strong>Watch out for:</strong> The deals you avoid contribute more to success than the deals you do. When Jacobs created XPO, they did "only" 17 acquisitions in four years but looked at about 2,000 prospects. They passed on abysmal deals and "okay, but not great" deals.</div>
+            </div>
+
+            <!-- Take Questions to the Experts -->
+            <div class="card" id="ask-experts">
+                <span class="card-label">Tactic</span>
+                <h3>Take Your Questions to the Experts — Three-Part Research Methodology</h3>
+                <p class="tagline">Educate yourself obsessively, compile the questions that matter, then get in front of the most knowledgeable experts you can find.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs uses a three-part research methodology before entering any industry: (1) Self-educate as thoroughly as possible. (2) Compile a list of questions that matter. (3) Get in front of the most knowledgeable experts on each topic. He supplements this with what he calls a "satellite view" — pulling back from day-to-day details to see the whole landscape from above.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Before entering waste management, Jacobs flew back to the U.S. and asked about 100 people making money in the industry what advice they had. The common theme: consolidation of landfills and collection companies in small, overlooked markets. Before founding XPO, he spent months studying truck brokerage's $350 billion addressable market and realized 99% of trucking companies owned six or fewer trucks — a massively fragmented industry ripe for tech-driven consolidation.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You enter an industry with a clear-eyed view of where the value is, what the risks are, and what specific trends you can capitalize on.</div>
+                <div class="field"><strong>Depends on:</strong> Intellectual humility. You have to genuinely want to learn, not confirm what you already believe.</div>
+            </div>
+
+            <!-- Keep Up the Pace -->
+            <div class="card" id="keep-pace">
+                <span class="card-label">Tactic</span>
+                <h3>Keep Up the Pace, Not the Pressure — Speed in M&A</h3>
+                <p class="tagline">Cut due diligence and negotiation from months to weeks by doing heavy research before first contact.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs' teams do extensive research before approaching a target. By the time they make contact, they already know what they're prepared to pay and on what terms. This lets them compress the timeline from two or three months to a matter of weeks.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "This is what we're prepared to pay for your business, on these terms. If this is acceptable, we can be signing a definitive agreement in two weeks." That gets a seller's attention.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Winning competitive deals because speed is a sharp edge. Sellers appreciate certainty and a compressed timeline.</div>
+                <div class="field"><strong>Depends on:</strong> A systematic evaluation process built from experience. Faster is almost always better, but only if the analysis underneath is rigorous.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> You're spending months in due diligence because you didn't do enough homework before making contact.</div>
+            </div>
+
+            <!-- Pre-Contact Checklist -->
+            <div class="card" id="pre-contact">
+                <span class="card-label">Tactic</span>
+                <h3>Control Your Outcomes — Pre-Contact Research Checklist</h3>
+                <p class="tagline">Answer these questions as thoroughly as possible before you even contact a seller.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs has a systematic list of questions his team answers before approaching a prospect: What will be the big drivers of profitable growth over the next five to ten years? What do we have to believe to be confident of achieving that growth? Are those assumptions reasonable or easily derailed? Are there hockey sticks to revenue/margin growth without credible explanations? Can we accelerate scale more rapidly and at a lower cost base by applying our resources? How much capital investment does the business require? Can we afford it? How strong is the management team? What's the customer composition like? Concentration risk? What do employees and industry experts think of the company?</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You move fast because you've already done the thinking. You avoid surprises because you've stress-tested assumptions before the handshake.</div>
+            </div>
+
+            <!-- Respect the Seller -->
+            <div class="card" id="respect-seller">
+                <span class="card-label">Tactic</span>
+                <h3>Respect the Seller</h3>
+                <p class="tagline">Treat sellers as partners, not adversaries. Say yes to everything non-essential, and never make them play the waiting game.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs builds trust with sellers through specific behaviors. He figures out in advance what things are must-haves (price, certain terms), then during negotiations tries to say yes to everything else the seller requests, as long as it's legal. Doesn't matter if something seems off-market or silly — it only matters what the seller thinks is important. In the period between handshake and signing, he's careful about promises and empathetic about seller anxiety. He doesn't renegotiate price after a handshake except in extremely rare circumstances of material misrepresentation.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> He uses Dick Houston (a 25-year CIA investigator and polygraph examiner, and longtime friend) to screen senior employees and participate in due diligence. When Houston flagged neon-red behavioral flags during talks with a publicly traded freight company's management about their accounting, Jacobs walked away. That company was later charged with criminal accounting irregularities.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Deals close faster. Sellers trust you. Key talent in the acquired company stays because they saw how you operated during the deal.</div>
+                <div class="field warning"><strong>Watch out for:</strong> "It's the big priorities, not the small stuff, that will determine whether we make it to the finish line."</div>
+            </div>
+
+            <!-- Don't Force-Fit Culture -->
+            <div class="card" id="force-fit">
+                <span class="card-label">Principle</span>
+                <h3>Don't Expect to Force-Fit a Culture</h3>
+                <p class="tagline">Two cultures can be dissimilar and still be compatible. Cultural incompatibility will suck all the energy out of integration.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs' early mistake was not attaching enough priority to understanding a prospect's culture. It's hard, if not impossible, to make wholesale cultural changes. The goal is to buy companies with compatible cultures so that change happens naturally. When XPO bought New Breed and Norbert Dentressangle, those companies had different cultures but both were compatible with XPO's, creating something more dynamic.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> If you're a fast-moving company and you buy a sleepy company, you might eventually get them pumped up — but why invite that effort? If your culture is results-oriented with high accountability and you buy a company that stops answering emails at 4:59 PM, it's going to be uneasy. An operation with a dishonest culture won't turn honest because you share a link to your code of ethics. Jacobs tells the story of buying a garbage collection company whose owner signed a non-compete — only to have the owner's daughter open a competing company down the street and start calling on the same customers.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> During due diligence, do 90-minute face-to-face talks with the top 15 or so people. You get the gist of what's going on, the positive and negative, and whether these are straightforward people you can trust.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Don't confuse "different" with "incompatible." Different is fine. Incompatible generates years of push-back.</div>
+            </div>
+
+            <!-- Integration -->
+            <div class="card" id="integration">
+                <span class="card-label framework">Framework</span>
+                <h3>Integration — Cultural First, Then Operational</h3>
+                <p class="tagline">Cultural integration is the single most important thing after signing. It's why Jacobs' companies have done so many high-speed acquisitions without blowing up.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Two parallel priorities immediately after closing: <strong>Cultural integration:</strong> Leverage cultural intelligence gathered during due diligence. Don't come in with an arrogant my-way-or-the-highway attitude. Be respectful through words, actions, and even how you think — people can tell if you're giving them baloney. Cultivate genuine gratitude toward the people who sustained the company. Look for ways to benefit from the qualities that made the deal attractive. Accept that your own culture is not perfectly formed. Listen. <strong>Operational integration:</strong> Speed and standardization. Get everyone onto one enterprise platform, one HR system, one CRM database, one BI database, one KPI dashboard, one training curriculum, one email system, one incentive compensation plan, one benefits program. Close acquisition books cleanly. Standardize financial statements. Rebrand immediately — nothing looks more amateur than salespeople going to meetings with different business cards and non-standardized job titles.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You can benchmark people and locations, instill accountability, and present a uniform image internally and externally. A visitor to any site shouldn't be able to tell whether it was opened from scratch or acquired ten years ago.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Don't operate two different businesses in parallel. Clean numbers, fast data, consistent information sharing.</div>
+            </div>
+
+            <!-- Overorganize -->
+            <div class="card" id="overorganize">
+                <span class="card-label">Tactic</span>
+                <h3>Overorganize</h3>
+                <p class="tagline">Break every integration into hundreds or thousands of individual tasks, each assigned to one person (not a working group), with a regular monitoring cadence.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs prefers assigning tasks to individuals, not groups. One person owns each task and is accountable for completing it on time. A regular cadence (daily or weekly) monitors progress. Every integration updates the playbook for the next deal — organic continuous improvement so you can "wash, rinse, repeat."</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> United Rentals integrations were far easier than United Waste; XPO was easier still. Partly from not repeating earlier mistakes, partly from tech advances, mostly from accumulated experience.</div>
+            </div>
+
+            <!-- Early Feedback Loops -->
+            <div class="card" id="early-feedback">
+                <span class="card-label">Tactic</span>
+                <h3>Set Up Early Feedback Loops</h3>
+                <p class="tagline">Ask new employees what the business could be doing better. Most have never been asked.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Through surveys, town halls, one-on-one interviews, group meetings, and internal social media, Jacobs' teams ask recently acquired employees questions like: "What's the business doing well, that we'd be crazy to change? What's the business doing not so well, that we'd be crazy not to change? What's your best idea to improve the business?"</div>
+                <div class="field"><strong>What it looks like in practice:</strong> If body language was audible, you'd hear: "Okay, they value me. I'm going to give it a shot. This could be a good company to work for." Every feedback round produces an avalanche of responses. The senior leadership team documents and discusses at length. This isn't a one-and-done HR/PR stunt.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Cultural integration accelerates because new employees feel respected. Operational improvement ideas come from the people closest to the work. You also get a good look at the talent pool the deal injected into your organization — sometimes the talent is the major coup of the acquisition.</div>
+            </div>
+
+            <!-- Don't Promise What You Can't Deliver -->
+            <div class="card" id="dont-promise">
+                <span class="card-label">Tactic</span>
+                <h3>Don't Promise What You Can't Deliver</h3>
+                <p class="tagline">Make one promise: "Despite trying my best, I'm going to mess up some things. Give me a break and give me some time."</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Newly acquired employees are watching closely: Are you honest? Competent? Do you care about them? Many are already deciding whether to stay or find a new job. Jacobs addresses this by being straightforward. He promises to take what people tell him seriously, think hard about it, and share it with the team — but doesn't promise to take every piece of advice.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "I'm only going to make one promise to you, and I promise this 100 percent: Despite trying my best, I'm going to mess up some things. So, give me a break, please, and give me some time to get it right. Also, feel free to tell me when I'm messing stuff up, and I'll listen to you."</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Trust builds because you're not overpromising. Genuine commitment without quicksand.</div>
+                <div class="field warning"><strong>Watch out for:</strong> When you float a question like "What do you think about our pricing?" you always get competing answers. Don't promise to take everyone's advice — it leads to nothing but quicksand.</div>
+            </div>
+
+            <!-- Cover Your Flank -->
+            <div class="card" id="cover-flank">
+                <span class="card-label">Tactic</span>
+                <h3>Cover Your Flank — The Cerberus Cautionary Tale</h3>
+                <p class="tagline">It's the stuff from left field that takes a deal down. Cover your flank whether buying or selling.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In 2007, Jacobs sold United Rentals to private equity firm Cerberus for $7 billion (including $2.6 billion in debt assumption). He stepped down, satisfied. Then the Great Financial Crisis hit. Cerberus defaulted on the agreement on November 14, 2007. United Rentals' stock plunged 31% in 24 hours and eventually fell to $5. They collected a $100 million breakup fee, decided not to seek another buyer, and eventually righted the ship. Today the stock trades at well over $350.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Always have contractual protections (breakup fees, etc.) that partially cushion against the unexpected. Don't assume any deal is done until the money is wired.</div>
+            </div>
+        </section>
+
+        <!-- ==================== CASE STUDIES ==================== -->
+        <section id="sect-cases">
+            <h2>Case Studies</h2>
+            <p class="section-intro">These are the stories behind the billions — the actual deals and crises where Jacobs' principles were forged in fire. Each illustrates multiple concepts working together under extreme pressure.</p>
+
+            <div class="card" id="cs-short-seller">
+                <span class="card-label case-study">Case Study</span>
+                <h3>The XPO Short-Seller Attack ($2 Billion Buyback)</h3>
+                <p class="tagline">Radical acceptance, non-judgmental concentration, and thinking huge — applied under fire in 48 hours, turning a crisis into a $4 billion profit.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In December 2018, a short-seller firm (later investigated by the SEC) published a "short" report on XPO packed with distortions. Wall Street bots picked it up, financial press spread the misinformation, and XPO's stock dropped 26% in one day. Instead of snarling back, going to ground, or stoically riding it out, Jacobs' team radically accepted the situation without judgment, then acted decisively.</div>
+                <div class="field"><strong>What it looked like in practice:</strong> The C-suite spent five hours that afternoon going page by page through the short report, unraveling its distortions. That night, Jacobs was already hosting fund managers for dinner — Matt Fassler (new chief strategy officer, one week on the job after two decades at Goldman Sachs) had his arms around every nuance by dinner. Long-term holders were climbing back on board within 24 hours. The team then decided to buy back $2 billion of stock. Bankers said it was insane — too high a percentage of market cap, unprecedented, the high-yield bond market was in the pits, bridge loans had sunk enterprises before. Jacobs called two board meetings, presented the data and the bankers' objections, recommended throwing deep and buying big. Board approved the $2 billion buyback by late afternoon.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Those $2 billion of shares ended up worth $6 billion — a $4 billion profit. The high-yield bond market recovered, the bridge loan was refinanced to bonds, and the whole saga was resolved within 48 hours of the short report going public.</div>
+                <div class="field green"><strong>What success looks like:</strong> Speed, data, conviction, and the courage to do something unprecedented when the math supports it.</div>
+                <div class="field warning"><strong>Watch out for:</strong> This worked because the short report was genuinely full of distortions and the business fundamentals were sound. Buying back stock on conviction only works if your conviction is grounded in reality.</div>
+            </div>
+
+            <div class="card" id="cs-amerex">
+                <span class="card-label case-study">Case Study</span>
+                <h3>Amerex Oil Associates — Information Arbitrage</h3>
+                <p class="tagline">The first company to arbitrage between oil futures and cash markets by building a primitive global information-sharing system.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In 1979, 23-year-old Jacobs started Amerex with a few thousand dollars. The futures markets (New York, Chicago) and cash markets (Houston, London) dealt in the same oil commodities but were largely oblivious to each other. The price for an identical barrel of oil varied between markets. All you had to do was buy in one, sell in the other, profit on the difference. Within four years: $4.7 billion in annual brokerage volume, offices worldwide.</div>
+                <div class="field"><strong>What it looked like in practice:</strong> There was no internet, no email, no centralized databases. Oil pricing information came via <em>Platts Oilgram Price Report</em> in the mail or via telex (telegraph connected to a typewriter). Amerex cobbled together a global IT system from appliance-sized computers and big green screens — their own crude version of the internet. Every employee entered useful buyer/seller activity or pricing data into the shared database, giving all brokers worldwide the same information in hours rather than days. Competitors were siloed; Amerex was not.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> A massive competitive advantage built on information sharing — not better product, not more capital, just better data flow. Sold Amerex in 1983.</div>
+                <div class="field green"><strong>What success looks like:</strong> Turning a lack of technology into an opportunity by building the primitive version of what you need rather than waiting for someone else to create it.</div>
+            </div>
+
+            <div class="card" id="cs-hamilton">
+                <span class="card-label case-study">Case Study</span>
+                <h3>Hamilton Resources — Scaling the Information Advantage</h3>
+                <p class="tagline">Took the data-sharing approach from Amerex and built a billion-dollar oil trading company in London.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In 1984, Jacobs moved to London with a billion-dollar line of credit and started Hamilton Resources. Strategy: create a data advantage in oil trading by leveraging the information-sharing approach pioneered at Amerex. Revenue quickly hit $1 billion annually through trading contracts, pre-financings, countertrade, barter, and refinery processing deals. Clients: major oil companies and oil-producing countries.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Proof that the same principle — information asymmetry exploited through better data infrastructure — works across different business models in the same industry.</div>
+            </div>
+
+            <div class="card" id="cs-united-waste">
+                <span class="card-label case-study">Case Study</span>
+                <h3>United Waste Systems — The "Obscene Profits" Roll-Up</h3>
+                <p class="tagline">Consolidated landfills and waste collection in small, overlooked markets to build a $2.5 billion company with 55% CAGR.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In 1989, Jacobs saw a report on how the two leading waste management companies were making half a billion in annual profit. "Obscene profits" flashed in his mind — the same phrase that had drawn him to oil a decade earlier. He asked about 100 industry insiders for advice. Common theme: consolidation in tertiary markets. Environmental regulations were forcing municipal dumps to transform into state-of-the-art landfills with bond requirements costing millions. Small owners were eager to sell. Jacobs went into markets like rural Mississippi and the Upper Peninsula of Michigan — places the big incumbents overlooked — rolled up landfills, then bought the collection companies hauling waste to those sites.</div>
+                <div class="field"><strong>What it looked like in practice:</strong> Avoid going head-to-head with the largest players. Be a big fish in a small pond. Achieve geographic density and economies of scale. United Waste went public in 1992, sold for $2.5 billion in 1997 to what is now Waste Management. Share price outperformed the S&P 500 by 5.6x, reflecting 55% compounded annual growth rate on both stock price and profit.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Proof of concept for the roll-up model: buy in fragmented, overlooked markets, achieve density, professionalize operations.</div>
+            </div>
+
+            <div class="card" id="cs-united-rentals">
+                <span class="card-label case-study">Case Study</span>
+                <h3>United Rentals — The 100-Bagger</h3>
+                <p class="tagline">Built the world's largest equipment rental company in 13 months through acquisitions, starting at $3.50/share and trading at 100x+ that price.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Founded in 1997 to rent construction equipment for North American jobsites. Public from the start, with acquisition-driven growth. Integrated about 250 independent rental businesses including the landmark purchase of U.S. Rentals (then the second-biggest provider). The stock became a "100-bagger."</div>
+                <div class="field"><strong>What it looked like in practice:</strong> In the three months after founding, Jacobs acquired six equipment rental businesses to get a physical presence, then executed a methodical M&A strategy. Integrations were the hard part — loads of humility behind the scenes to buy at speed and emerge as one cohesive company with a shared culture.</div>
+            </div>
+
+            <div class="card" id="cs-xpo-logistics">
+                <span class="card-label case-study">Case Study</span>
+                <h3>XPO Logistics — Automating Truck Brokerage</h3>
+                <p class="tagline">Spotted the intersection of two big trends — shift toward brokers as middlemen and automation of manual processes — and built a 32-bagger.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In 2011, Jacobs invested in a logistics company with $175 million in revenue. The truck brokerage market was $350 billion addressable. The industry was massively fragmented — 99% of U.S. trucking companies owned six or fewer trucks. Most brokers were still doing business over the phone. Jacobs envisioned full digital automation of freight brokerage.</div>
+                <div class="field"><strong>What it looked like in practice:</strong> The third person hired at XPO was Mario Harik (master's degree in machine learning and AI from MIT), who immediately grasped the vision for fully automating freight brokerage. They built a digitally enabled transportation network with a single data repository facilitating transactions in a private cloud. Ten years ago, zero percent of brokerage loads were digital. Today, 96% of loads tendered by RXO (the brokerage spin-off) have a digital component, many completely touchless.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> XPO's stock became a 32-bagger. Seventh best-performing stock in the Fortune 500 for the decade. Successfully spun off into three separate public companies: XPO (LTL transportation), GXO (contract logistics), and RXO (freight brokerage).</div>
+                <div class="example-phrase">"Automate everything you can."</div>
+                <div class="field"><strong>Depends on:</strong> Getting the big trend right early — in this case, a dozen years before it became apparent to the industry.</div>
+            </div>
+
+            <div class="card" id="cs-triple-integration">
+                <span class="card-label case-study">Case Study</span>
+                <h3>XPO's Triple Integration — Norbert Dentressangle, New Breed, and Con-way</h3>
+                <p class="tagline">$7 billion of M&A capital deployed in 13 months, three simultaneous integrations managed in harmony.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Between 2014 and 2015, Jacobs signed agreements for XPO's three largest acquisitions: Norbert Dentressangle (Europe), New Breed (North America — considered the best-run contract logistics company in the world), and Con-way (North America). Rather than integrate sequentially — which would mean continually doing and undoing shared services, IT systems, and branding — they managed all three simultaneously.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> New Breed became a cornerstone for the GXO spin-off. Con-way's LTL business EBITDA nearly tripled from 2015 to 2022, generating about $4 billion of net cash. Norbert's profit doubled in three years. The team averaged 14-hour workdays.</div>
+                <div class="field green"><strong>What success looks like:</strong> One cohesive company, single org chart, combined management and operating structures — despite three massive deals landing in rapid succession.</div>
+            </div>
+
+            <div class="card" id="cs-hertz">
+                <span class="card-label case-study">Case Study</span>
+                <h3>My Lunch with Hertz — Don't Let Ego Intrude into M&A</h3>
+                <p class="tagline">The Hertz CEO let personal ego prevent him from competing effectively, while United Rentals kept building.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> When Jacobs entered construction equipment rental, Hertz was the undisputed leader with $1 billion annual revenue built over 37 years. United Rentals surpassed $1 billion in 13 months. The Hertz CEO invited Jacobs to lunch at the Metropolitan Club in New York — not to buy him out, but to complain: "You made me change one of my taglines! I don't want to be second in anything!" He then tried to get Jacobs to slow down, claiming he'd wreck the industry and go bankrupt.</div>
+                <div class="field"><strong>What it looked like in practice:</strong> Jacobs told him: "Go out there and beat me. Win your tagline back." Instead, the Hertz CEO found something wrong with every potential acquisition that might have gotten him back in the race. As of 2023, Herc Rentals (formerly Hertz Equipment Rental) has forecasted EBITDA of $1.5 billion. United Rentals: $6.8 billion.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Ego and resentment are terrible M&A strategists. Compete on execution, not on grievance.</div>
+            </div>
+
+            <div class="card" id="cs-revenue-loss">
+                <span class="card-label case-study">Case Study</span>
+                <h3>The $600 Million Revenue Loss — Radical Acceptance Under Fire</h3>
+                <p class="tagline">XPO's largest customer tried to buy them on one-sided terms, was refused, and retaliated by pulling $600 million in annual revenue — days before earnings.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> In early 2019, XPO's largest customer tried to acquire them at an eye-popping premium, but with terms entirely in the buyer's favor — including a provision forcing XPO to absorb extremely high costs if the deal got nixed on antitrust grounds. Jacobs said no. The customer retaliated by pulling two-thirds of their business, equating to about $600 million of annual revenue, just days before an earnings report.</div>
+                <div class="field"><strong>What it looked like in practice:</strong> Radical acceptance: bad news is reality, hiding it wastes time. Immediate transparency with employees: "You've heard the story. We've lost a chunk of business, and we need to backfill that." Same with customers: your service won't be disrupted. Same with investors and media: "Yes, we lost a lot of revenue. We'll redeploy assets and replace it over time."</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Within about a year, they had replaced most of the lost revenue. Stock price tripled in about 26 months from the low. Because trust had been established with internal and external audiences, they managed through the crisis with minimal fallout. Today, nobody even asks about it.</div>
+            </div>
+        </section>
+
+        <!-- ==================== TEAM & CULTURE ==================== -->
+        <section id="sect-culture">
+            <h2>Team &amp; Culture</h2>
+            <p class="section-intro">You're leading a team — maybe a small one, maybe thousands — and you need people to operate as more than a collection of individuals. These are the principles that turn a company into a superorganism where communication flows, gratitude is expressed, and every person feels connected to the mission.</p>
+
+            <div class="card" id="superorganism">
+                <span class="card-label">Principle</span>
+                <h3>The Superorganism — Collaboration as Culture</h3>
+                <p class="tagline">An ant colony operates as a single coherent superorganism far more powerful than the sum of its members. So should your company.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> From <em>The Superorganism</em> by Bert Hölldobler and Edward O. Wilson. A typical ant colony has 20,000-100,000 members capable of extraordinary feats: vigilance against threats, search-and-rescue operations risking death to save others, tending to injured comrades, and — most importantly — active communication through pheromone secretions, movement, touch, and sound. The parallel to corporate culture is stunning. Bacteria do it too — quorum sensing, where they detect whether enough of their species are present before coordinating action.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> The concept of a company unified like a superorganism is powerful — but people are unique, and culture must make space for individualism. Jacobs' mentor Bill Dixon at Bennington College embodied this: improvisation meant bringing out the best in each musician by opening space for experimentation and bold ideas without fear of being put down.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> XPO grew into one of the world's largest transportation and logistics companies by unifying everyone around a common purpose — and yet it felt staffed by upbeat entrepreneurs.</div>
+            </div>
+
+            <div class="card" id="gratitude">
+                <span class="card-label">Tactic</span>
+                <h3>Gratitude Conversations</h3>
+                <p class="tagline">One-on-one, notes-in-hand expressions of specific gratitude that create durable goodwill lasting weeks or months.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> This is Jacobs' modification of Martin Seligman's (one of the founders of positive psychology) "gratitude letters" exercise. Instead of writing a letter, you write notes to yourself about why you're grateful for a specific person, then sit down with them privately and say it out loud, directly and personally.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> You identify someone who deserves your gratitude — maybe they're great at solving thorny problems, or they uplift the whole team. You write notes detailing exactly why. Then you find a quiet time, sit down with them one-on-one, notes in hand, and tell them.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Both people feel an overwhelming sense of happiness that can persist for weeks or months. It's a culture-builder that costs nothing.</div>
+                <div class="field green"><strong>What success looks like:</strong> The recipient feels genuinely seen. The giver feels connected to their team. The effect radiates outward into the team dynamic.</div>
+                <div class="field"><strong>Depends on:</strong> Sincerity. This can't be a performance or a box-checking exercise. The specificity of the notes is what makes it land.</div>
+            </div>
+
+            <div class="card" id="overcommunicate">
+                <span class="card-label">Principle</span>
+                <h3>Over-Communicate with the Full Team</h3>
+                <p class="tagline">There's no such thing as over-communicating. "Communication" perennially outpolls even compensation in employee surveys.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Every employee survey Jacobs has seen indicates people want to hear more from management. At XPO, he used emails, social media, site visits, town halls, phone calls, video chats, and regular on-screen meetings with frontline employees like LTL truck drivers. A consistent cadence reinforces openness. A CEO who communicates weekly then goes silent invites speculation the company is in trouble.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> When challenges arise, employees want leadership to be clear about what happened. Share the plan if you can. Some may not like the plan, but they can see you're not hiding things. That's how you get buy-in.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> A work environment at its most productive when communication flows honestly and frequently.</div>
+            </div>
+
+            <div class="card" id="become-listener">
+                <span class="card-label">Principle</span>
+                <h3>Become a Much Better Listener</h3>
+                <p class="tagline">Deep listening — complete attention directed at another person, nonjudgmentally — is a kind of superpower.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs cites seeing Marina Abramović's <em>The Artist Is Present</em> exhibition at the Museum of Modern Art in New York in 2010. Abramović sat in a chair and looked directly into each visitor's eyes, completely present, saying nothing. People cried — including the artist herself. Most people are accustomed to getting a tiny fraction of another person's attention. When they get complete attention, they feel a profound connection.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs shares his phone number and email with employees, inviting them to tell him whatever they think he should know. When an employee emailed that a roof had been leaking for two months because the requisition was tied up in bureaucracy, they expedited the fix — validating that there wasn't a black hole at the end of the feedback loop.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Opening a listening channel at the top signals that leadership values the free flow of ideas and information.</div>
+                <div class="field warning"><strong>Watch out for:</strong> If you fail to give inbound messages your attention, your credibility takes a bigger hit than if you hadn't established the channel at all.</div>
+            </div>
+
+            <div class="card" id="entrepreneurial-spirit">
+                <span class="card-label">Principle</span>
+                <h3>The Entrepreneurial Spirit — Steve the HVAC Guy</h3>
+                <p class="tagline">A hardworking, take-pride-in-your-work entrepreneur who puts customers first, owns up to mistakes, and measures his worth by customer satisfaction and family income.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Steve handles the HVAC at Jacobs' Connecticut home. Originally worked for a large HVAC company that was sold to a private equity firm. The new owner cut costs and resold. Steve went out on his own. The old company: "Terrible. No pride in their service." Steve is the opposite — he shows up on a Sunday during a heat wave, his self-esteem tracks his customer satisfaction scores, he doesn't pad estimates, he owns up to human error and sets things right in a hurry.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Customers flock to him. Through sheer work ethic and character — and probably some luck — he's maximizing his value and growing market share.</div>
+                <div class="field green"><strong>What success looks like:</strong> Jacobs wrote the book with people like Steve in mind: people who want to work their tails off, outsmart the competition, put customers on a pedestal, and make a lot of money for their families.</div>
+            </div>
+        </section>
+
+        <!-- ==================== HIRING & TALENT ==================== -->
+        <section id="sect-hiring">
+            <h2>Hiring &amp; Talent</h2>
+            <p class="section-intro">You're building or scaling a team. Every hire matters — a single bad fit at the top can cascade into entire departments of C players. These are Jacobs' frameworks for identifying, attracting, retaining, and occasionally exiting talent.</p>
+
+            <div class="card" id="four-qualities">
+                <span class="card-label framework">Framework</span>
+                <h3>Intelligence, Hunger, Integrity, and Collegiality — The Four Hiring Qualities</h3>
+                <p class="tagline">If a candidate is deficient in any one of these four, that's a risk Jacobs doesn't take. High in all four plus the right skills? Snap them up.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs' three successor CEOs — Mario Harik (XPO, grew up in Beirut, MIT master's in ML/AI), Malcolm Wilson (GXO, acquired through the Norbert Dentressangle deal, English, decades of logistics experience), and Drew Wilkerson (RXO, hired from C.H. Robinson, Southerner, attended a college ranked below top 100) — are totally different on the surface but nearly identical in these four qualities.</div>
+                <div class="field"><strong>Intelligence:</strong> First filter. Screens out 90% of candidates. A Spencer Stuart study in the '90s found the CEO trait most closely correlated with organizational success is high IQ, not EQ. But don't confuse pedigree with ability — SAT scores can be boosted with tutors, college admissions can be gamed, big-company jobs can be about who you know. Drew Wilkerson's mastery of RXO's business is extraordinary by any standard despite not attending a top-100 school.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> The smartest thing Jacobs does as CEO is making sure most of the people he hires are smarter than he is. Electric energy happens naturally when brainy people get together to hash something out.</div>
+                <div class="field warning"><strong>Watch out for:</strong> The risk of confusing pedigree with ability. If Jacobs had only looked for Ivy League graduates, he would have missed Drew Wilkerson — and RXO would have a less capable CEO.</div>
+            </div>
+
+            <div class="card" id="hunger">
+                <span class="card-label">Principle</span>
+                <h3>Hunger — The Second Hiring Quality</h3>
+                <p class="tagline">Hungry people have tenacity, want to work hard, and are motivated to make a lot of money. If they say they're not motivated by money, they either lack candor or lack the drive you need.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Hunger is about stamina and competitive intensity. Jacobs only hires people who actively enjoy an intense, results-oriented workplace — not people who are merely resigned to working hard. At Amerex, his first company, he hired a small team of scrappy people driven by a competitive streak, partly because they were close to broke. That culture scaled across every subsequent company.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> A candidate who says "I'm not motivated by money" is a red flag. You can't pay the mortgage with advice. Compensation is the most effective motivational tool a CEO has. Jacobs looks for people who want to run hard at ambitious goals and reap significant rewards.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> A culture of hunger creates concentrated focus and high output. Slightly understaffed teams are more productive than overstaffed ones — less redundant busywork, more drive.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> Someone who started out hungry but lost their edge — maybe a relationship issue, a change in personal philosophy, or they've made a lot of money and gone soft. Burnout is a risk when your team runs on a deep internal urge to succeed.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Slightly understaffed is productive. Substantially understaffed causes people to mentally check out. And people who work too hard for too long hit a wall. Jacobs periodically tells his heaviest hitters to chill out — turn off the phone, rest, recharge, come back swinging.</div>
+                <div class="example-phrase">"Hire ambitious people who want to accomplish big things and make a lot of money."</div>
+            </div>
+
+            <div class="card" id="integrity-hire">
+                <span class="card-label">Principle</span>
+                <h3>Integrity — The Third Hiring Quality</h3>
+                <p class="tagline">If someone's willing to lie about small things, they're usually willing to lie about big things. One integrity-impaired person can disrupt an entire workplace.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Three lessons Jacobs has learned about integrity over his career: First, small lies predict big lies. Communicating with someone you can't trust to speak truthfully is exhausting — and worse, dishonest employees blind management to reality. Second, liars eventually get caught. Honest people are more successful long-term. On a massive scale, you can't afford liars — they pose an existential threat to the entire company. Third, honest people don't tell you how honest they are. They show integrity through actions — doing what they say they'll do, being straightforward in how they speak. These are the cues to watch during hiring.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Trustworthy people make it easier for everyone else to focus on their jobs. The team can sense when integrity is present, even without knowing specifics. Honest employees are leadership's eyes and ears.</div>
+            </div>
+
+            <div class="card" id="collegiality">
+                <span class="card-label">Principle</span>
+                <h3>Collegiality — The Fourth Hiring Quality</h3>
+                <p class="tagline">An organization is like a party. You only want to invite people who bring the vibe up.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs frames this partly as good business (essential for achieving big goals) and partly as selfish. His insurance agent told him he probably has 20 years left — about 7,300 days, with maybe 5,000 good ones. He doesn't want to spend even one hour with unkind people. Science has discovered many ways people in close contact influence each other's physiological processes. Collegiality is a health consideration, not just a preference.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> XPO's Greenwich headquarters — vetted on intelligence, hunger, integrity, and collegiality — scored 9.0 to 9.5 out of 10 on self-reported job satisfaction in anonymous employee surveys for the 12 years Jacobs was CEO. No pool tables or bean bags. Just quiet intensity, emotional warmth, and people who admire and trust one another.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> When hiring is done right, everywhere an employee turns, there's a teammate who makes them feel better about who they are and what they're doing. Everyone is happier, more energized, and more productive.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> One jerk can put a stick in the spokes for everyone. Jerks usually show their colors quickly because they can't work harmoniously. But some people come across as collegial in interviews and reveal their true nature only after joining.</div>
+                <div class="example-phrase">"Fill your leadership team with good-natured people. No one wants to work with a jerk, even a very talented jerk."</div>
+            </div>
+
+            <div class="card" id="multi-source">
+                <span class="card-label framework">Framework</span>
+                <h3>Use Multiple Sources for Assessment — Hiring Process</h3>
+                <p class="tagline">Seven or eight interviews minimum. Leave a position open rather than hire someone you're unsure about.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Hiring the wrong person is expensive on every front — money, time, energy, team well-being. Even 90% accuracy means one in ten is a misfire, which at senior levels can be disastrous. Jacobs personally interviews every headquarters hire, from front desk to C-suite. Not for job skills — for whether the candidate can connect with him and the team. He monitors his own feelings: Do I feel relaxed and strong in this person's presence? Am I inspired?</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Candidates complete a 45-question form before interviews, covering questions like: What quality do you admire most in people? What do your subordinates think are your weaknesses? What have been one or two of the happiest moments of your professional life? Trusted colleagues independently interview and share honest assessments. In the hiring meeting, Jacobs expects his team to respectfully disagree with him and with one another.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> An empty seat is less damaging than a poor fit. A strong collaborative filter keeps the wrong people out.</div>
+                <div class="example-phrase">"An empty seat is less damaging than a poor fit."</div>
+            </div>
+
+            <div class="card" id="abc-players">
+                <span class="card-label framework">Framework</span>
+                <h3>A, B, and C Players</h3>
+                <p class="tagline">If your reaction to someone quitting is panic, they're an A player. If you can live with it, B player. If you're relieved, C player. Be a C-free zone.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs uses three techniques to evaluate and elevate talent: <strong>Technique 1 — The Quitting Thought Experiment.</strong> Imagine the person walks into your office and says they're leaving — new job, new city, bought a house, no counteroffer possible. Your gut reaction instantly tells you their grade. Panic = A player (wake-up call to check their comp and promotion timeline). "I can live with it" = B player. "No big deal, saves us severance" = C player. <strong>Technique 2 — Companywide Coding.</strong> HR uses an objective coding system to categorize every manager-level employee and above. Goal: every position filled by an A player. Some Bs are inevitable. No Cs — period. <strong>Technique 3 — Relationship Appraisal.</strong> Meet one-on-one with direct reports and ask each other to rate the quality of your professional relationship on a scale of 1-10. If it's not a ten: "What would make it a ten?"</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> You identify who to retain aggressively, who to develop, and who to exit — before it's too late.</div>
+                <div class="field warning"><strong>Watch out for:</strong> If you hire a B player, they'll probably hire C players. Then you have C players led by B players.</div>
+            </div>
+
+            <div class="card" id="fire-c">
+                <span class="card-label">Tactic</span>
+                <h3>Fire C Players, but Be Nice</h3>
+                <p class="tagline">Act decisively but compassionately. Let them go with their head held high and don't be cheap on severance.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Wayland Hicks (former COO of Xerox in its heyday, later COO at United Rentals, 13 years Jacobs' senior) gave him this wisdom: once it's evident an employee isn't a match, act. This is a difficult moment for the employee. Show kindness regardless of circumstances. Don't create a situation where you avoid them in the supermarket a decade later.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Management must identify employees who aren't causing overt trouble but are weakening the enterprise with quiet, chronic underperformance. Give them a 60-day improvement plan. If insufficient headway, let them go. People change jobs every day — the traits that got them hired will lead them to a better fit.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> The organization stops carrying dead weight. The departing employee gets a clean exit they can build on.</div>
+                <div class="field warning"><strong>Watch out for:</strong> The decision to fire shouldn't be reserved solely for worst-case misconduct. Quiet chronic underperformance is just as damaging.</div>
+            </div>
+
+            <div class="card" id="overpay">
+                <span class="card-label">Principle</span>
+                <h3>"Overpay" Your Employees</h3>
+                <p class="tagline">The only way to earn windfall money in Jacobs' companies is to make outsized contributions to value creation. Don't be cheap with talent — tie compensation to performance.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> None of Jacobs' 174,000 employees show up to make money for Brad Jacobs. They come to make money for themselves and their families. He "overpays" almost every direct report to ensure top-tier people are in place, then aligns their incentive structure with company goals. Many of his people have made tens of millions — one made over $100 million — and the business received tens of billions in shareholder value in return.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Dick Colburn (a wildly successful entrepreneur, multibillionaire, and musician who had been married ten times to nine wives) sold U.S. Rentals to United Rentals. When Jacobs asked him how he made all that money, Colburn said success is mainly about compensating your people — designing a profit-sharing formula that marries their personal interests with those of the company.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> XPO attracts world-class people by recruiting from top-performing, high-paying enterprises like Alphabet, Amazon, and Goldman Sachs. This was a strategic decision to break out of the transportation industry's "penny wise, pound foolish" compensation culture.</div>
+                <div class="field warning"><strong>How to recognise it early:</strong> A warehouse manager earning $100K less than they should may cost you millions in lost profit. It makes no financial sense to skimp on salary to save $100K when hiring a second-best candidate could cost millions.</div>
+                <div class="field green"><strong>What success looks like:</strong> Employees are happier and have more reason to work hard. Managers devise creative solutions. The company gains in operational excellence, market share, and profitability.</div>
+            </div>
+
+            <div class="card" id="incentive-design">
+                <span class="card-label framework">Framework</span>
+                <h3>Incentive Compensation Design</h3>
+                <p class="tagline">CEOs should personally participate in designing incentive plans. Customize for different roles and never cap incentive comp.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs insists on three principles: <strong>1. Customize by role with domino effects in mind.</strong> Salespeople focus on revenue; operations people focus on margin and profit. If a salesperson's commission depends only on revenue, they'll bring in customers that may not fit operational capabilities — impairing efficiency and creating unhealthy sales-ops tension. Solution: sales commission depends partly on top-line results and partly on profit. Now everyone partners to determine which customers are the best fit. <strong>2. Don't cap incentive compensation.</strong> A salesperson who hits their commission cap six months into the year is motivated to coast while collecting base pay. Open-ended incentive comp in correlation with performance means they keep finding ways to sign profitable business. <strong>3. Use equity deep in the org chart.</strong> Jacobs extends equity far deeper than typical — not waiting for employees to advance to higher leadership levels. XPO's HR team reviews the vested and unvested stock holdings of the top 200 employees four or five times a year. If someone's holdings are insufficient relative to their value, they get a spot equity bonus. If a top performer's stake is almost fully vested, they get more equity over an extended period to encourage retention.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Clear benchmarks and a fair chance of meeting them through concerted effort. If either component is wrong — unclear benchmarks or unfair targets — people aren't motivated.</div>
+                <div class="example-phrase">"Don't be cheap with what you pay for talent. Tie compensation to performance."</div>
+            </div>
+
+            <div class="card" id="pre-interview">
+                <span class="card-label resource">Resource</span>
+                <h3>The 45 Pre-Interview Questions</h3>
+                <p class="tagline">Forty-five questions designed to reveal a candidate's self-awareness and behavioral traits before the interview even begins.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Grouped into Strengths (13 questions), Areas for Improvement (10 questions), and Miscellaneous (22 questions). Candidates complete the form before being interviewed, giving the team basic information up front so the actual interview can focus on the person behind the resume.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Key questions include: "List adjectives that sum you up." "What motivates you?" "What are your biggest professional weaknesses?" "Name three of your biases." "What defect should a professional never allow themselves to have?" "On a scale of 1-10, how much do you want this job?" "What would make that a 10?" "Why should we hire you?" Interview ends on a positive note: "What have been one or two of the happiest moments of your professional life?"</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Better interviews — more signal, less noise. The form surfaces self-awareness and honesty before the handshake.</div>
+            </div>
+        </section>
+
+        <!-- ==================== MEETINGS & COMMUNICATION ==================== -->
+        <section id="sect-meetings">
+            <h2>Meetings &amp; Communication</h2>
+            <p class="section-intro">You're running meetings — maybe too many, maybe poorly — and you know they're the primary forum where decisions get made, talent gets spotted, and culture gets reinforced. These are Jacobs' specific, battle-tested tactics for making every meeting matter.</p>
+
+            <div class="card" id="electric-meetings">
+                <span class="card-label framework">Framework</span>
+                <h3>Electric Meetings — Three Ingredients</h3>
+                <p class="tagline">The right people, a crowdsourced agenda, and an atmosphere where everyone feels safe to respectfully disagree.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs traces his meeting philosophy to Bennington College (a private, 600-student liberal arts college in rural Vermont), where he attended on scholarship with early admission, without completing high school. Courses had nine students on average, sessions were 90 minutes of fast-paced discussion, instructors were practitioner-teachers who taught on the side and knew students by first name. There was no time to raise a hand — you had to engage or you wouldn't survive. Later, at Brown University (Ivy League, family tradition), classes of 150+ students with passive lectures didn't suit his learning style at all. He eventually dropped out.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Every meeting Jacobs leads tries to recreate the sensation of 17-year-old him in a Bennington classroom surrounded by peers eager to jump into conversation.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> People walk away knowing they contributed to the process, with a clear understanding of what needs to be done next.</div>
+            </div>
+
+            <div class="card" id="mor">
+                <span class="card-label">Tactic</span>
+                <h3>Monthly Operating Reviews (MOR) — The Meeting Cadence</h3>
+                <p class="tagline">The MOR is the backbone of how Jacobs runs his businesses and the main catalyst behind the value his teams have created.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> MORs happen every 30 days. QORs (quarterly operating reviews) every third month before publicly reporting earnings. The process: (1) Each unit produces slides with the financial planning and analysis team — concise financial and operational KPIs, customer and employee satisfaction scores, comparisons to prior period and prior year, projections with assumptions. (2) Slides are distributed in advance. Everyone reads the full deck before the meeting. (3) Each attendee sends their top one or two takeaways and top one or two questions. (4) These are compiled into a digital survey and sent back to attendees, who rank each item 1-10 (1 = not worth discussing, 10 = highest priority). (5) The meeting starts by reading takeaways scoring 7+, then dives into highest-ranked questions.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> 30 minutes of advance reading replaces a couple of hours of live slide-flipping to a bored audience. Nine times out of ten, better slides means less content per page — immediately understandable takeaways.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Everyone enters the meeting having already read, thought, formulated questions, and ranked priorities. You jump straight into productive conversation. Also serves as succession planning — tracks who consistently adds value, spots rising stars.</div>
+                <div class="example-phrase">"Resist the urge to flood communications with nonessential information."</div>
+            </div>
+
+            <div class="card" id="keep-small">
+                <span class="card-label">Tactic</span>
+                <h3>Keep It Small, but Large Enough</h3>
+                <p class="tagline">15 to 20 attendees. Mix senior leadership with subject matter experts and rising stars. No silos.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Early in his career, Jacobs flew in 45-50 people for three-day huddles. Productive, but not optimal — too many participants meant too much posturing. With 15-20, discussions are more sincere. He invites a mix so senior leaders know what's going on across the whole company, not just their own jurisdiction. This gives them added context beyond their scope of responsibility.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Executives who have visibility across the company make decisions considering the broader organization rather than in silos. The shared mindset: be prepared to help solve a problem wherever it sits in the business.</div>
+            </div>
+
+            <div class="card" id="surprise-mods">
+                <span class="card-label">Tactic</span>
+                <h3>Avoid the Spin — Surprise Moderators</h3>
+                <p class="tagline">Assign unexpected moderators to prevent curated narratives. Everyone needs to know the real deal on performance.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs assigns "surprise moderators" — people from outside the unit who have a neutral point of view and don't feel compelled to spin. He also taps people who are senior enough to be invited but not so experienced that they're an obvious choice to lead. They benefit from hands-on experience shepherding executives with strong personalities.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "I'll do everything I can to avoid a situation where an attendee comes to an MOR with a script they've crafted, determined to present a curated narrative." Because people can sense when a narrative doesn't ring true — the meeting gets soured by suspicion.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Unobstructed view of reality. The bad stuff surfaces, and things going wrong can be turned into moneymaking opportunities.</div>
+            </div>
+
+            <div class="card" id="conflicting-opinions">
+                <span class="card-label">Tactic</span>
+                <h3>Explore Conflicting Opinions</h3>
+                <p class="tagline">Unanimous agreement should make you nervous. Conflicting opinions are the purpose of the meeting.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> When two individuals explore differences in constructive dialogue, it elevates the debate to substance — what is the value, what is the risk, what is the domino effect. The answers can lead to lots of money being made. Someone who only listens is taking without giving and doing a disservice to the group.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> The moderator goes around the room multiple times and poses the same question to every participant. By the end, everyone should have a clear understanding of how their unit performed relative to plan, what the opportunities are, and what tactical steps to take.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Real connections. "We'll put our heads together tomorrow and get to the bottom of it" is the sound of a successful meeting.</div>
+                <div class="example-phrase">"Whose star went up in your eyes during the meeting, and why?"</div>
+            </div>
+
+            <div class="card" id="crowdsource-ext">
+                <span class="card-label">Tactic</span>
+                <h3>Leverage Crowdsourcing in External Meetings</h3>
+                <p class="tagline">Let the audience set the agenda. Skip the neutered monologue and go straight into spontaneous Q&A.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> At fireside chats, industry conferences, town halls, and global teleconferences, Jacobs takes a minute or two to introduce himself and a few themes, then goes directly into spontaneous Q&A. His actions communicate: "You've honored me with your time, so I want to honor you by talking about what interests you."</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Most professional association panels are pre-scripted — moderator shares questions in advance, speakers script answers. Especially true with government officials. Safe, but boring. Jacobs is the "ask me anything and I'll answer" guy.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Connection. When someone is interested in what you have to say, making them part of the conversation creates a bond that rehearsed presentations never achieve.</div>
+            </div>
+
+            <div class="card" id="few-rules">
+                <span class="card-label">Tactic</span>
+                <h3>Set Few Rules, but Cast Them in Stone</h3>
+                <p class="tagline">Four non-negotiable meeting rules. Break them and face real consequences.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Four guidelines for every meeting: (1) Turn off all devices. (2) Only one person talks at a time. No side conversations. (3) Give the speaker your full attention and keep an open, receptive mind. (4) Disagree, but disagree respectfully.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Jacobs' chief customer officer at XPO — charismatic, loved by everyone, in charge of the most important customer relationships — couldn't stop having side conversations in meetings. Jacobs banned him from all operating reviews for a full year. Twelve rounds of meetings where he had to send representatives and be briefed after the fact. When he returned, he was a model attendee. The rest of the team got the message.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> The rules are simple but enforced with real consequences, even at the C-suite level.</div>
+            </div>
+
+            <div class="card" id="validate">
+                <span class="card-label">Tactic</span>
+                <h3>Validate, Don't Denigrate</h3>
+                <p class="tagline">Pair correction with validation. Say "I see your point, but..." before disagreeing. Never embarrass someone publicly.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Smart people sometimes say dumb things. Embarrassing a colleague or playing "gotcha" — especially in front of others — kills the dialogue. For productive group discussion, being wrong must be fair game, and so must disagreeing. Disagreement makes many people uncomfortable, and criticism can be misread as personal attack.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> "I see your point, but I think the projections might be off." Or: "I agree with you directionally, but I want to make sure we're working with the right assumptions." When overruling group consensus, Jacobs lists the main points underlying the consensus (showing he listened), then explains where he differs and why, and asks for support.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> People feel heard, the temperature stays low, and the group arrives at better answers. The option to be wrong stays open, which keeps the best ideas flowing.</div>
+                <div class="field warning"><strong>Watch out for:</strong> Jacobs isn't apologetic about pulling rank. As CEO, he has the widest view and most access to information. He may know things of strategic import the group doesn't. Pulling rank is appropriate — but only after listening carefully and considering all opinions.</div>
+            </div>
+
+            <div class="card" id="board-access">
+                <span class="card-label">Tactic</span>
+                <h3>Give the Board Access</h3>
+                <p class="tagline">Don't wall off directors from the organization. Give them full access — phone calls, operating reviews, internal social media, everything.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs treats the board as his boss and speaks to directors with 100% unvarnished honesty. Unlike most companies, which don't want board members talking to executives, Jacobs gives directors full access — they can pick up the phone and call anyone. Boards receive a steady stream of emails, access to internal social media, the <em>Brad's Club</em> newsletter, and all important operating and financial reports.</div>
+                <div class="field"><strong>What it looks like in practice:</strong> Several directors have expressed relief and astonishment that interactions are so free of the constraints they experience on other public company boards. Directors log far more hours and provide far more service than typical corporate board members.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Trust between board and executive team. Directors become genuinely engaged contributors rather than rubber-stampers who show up four times a year for choreographed meetings.</div>
+                <div class="example-phrase">"Board meetings shouldn't be choreographed. If all you're going to do is read a script, just send it as an email."</div>
+            </div>
+
+            <div class="card" id="employee-surveys">
+                <span class="card-label">Tactic</span>
+                <h3>Be Sincere about Improving the Business — Employee Surveys</h3>
+                <p class="tagline">Ask four straight questions every 90 days. Read every response within ten days. Share all results, favorable and unfavorable, with the entire workforce.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> After finding that the Bain Net Promoter Score (NPS) system produced bizarre results — employees reported low likelihood to recommend XPO as a workplace while simultaneously reporting high job satisfaction (because they misunderstood the question) — Jacobs replaced it with a simple four-question survey: (1) Are you happy in your job? (2) How can we fix the situation if you're not happy? (3) What's your single best idea to improve our company? (4) What's the stupidest thing we're doing as a company? Goes to every employee with a corporate email and to frontline workers through an app. The senior management team reads every response — usually tens of thousands — within ten days. Word cloud analysis detects macrotrends. Summaries go to every employee, favorable and unfavorable. Nothing held back.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Criticism from employees isn't dirty laundry — it's gold. Disgruntled employees can be valuable auditors because they're constantly cataloging anything suboptimal. Their discontent may be rooted in real problems that will eventually disgruntle others if not addressed.</div>
+                <div class="field warning"><strong>Watch out for:</strong> There have been cases where employee feedback found its way outside the company, creating misunderstandings. Jacobs' view: if you're confident in your leadership and sincere about wanting to improve, the merits far outweigh the hazards.</div>
+            </div>
+
+            <div class="card" id="customer-feedback">
+                <span class="card-label">Tactic</span>
+                <h3>Customer Feedback Loops — The Equipment Audit</h3>
+                <p class="tagline">Use data to consult with customers on optimizing their own operations, even if it means advising them to stop renting from you.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> At United Rentals, Jacobs used customer feedback loops to collaborate on equipment usage data. They audited what customers owned, found inefficiencies, and completed the loop by sharing their perspective. Sometimes they advised customers to buy a machine rather than rent — because they needed it nine or ten months a year. Other times, they advised selling underutilized assets to get depreciation off the books and renting for just the few months needed. Eventually automated as United Rentals' Total Control® system.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Free audits that deepened relationships and led to more business later. As far as Jacobs knows, they were the only rental provider of any scale doing this at the time.</div>
+                <div class="example-phrase">"A customer relationship is like any other relationship — for it to succeed, you have to be clear about how much you value it, and continually work on improving it."</div>
+            </div>
+
+            <div class="card" id="dream-tech">
+                <span class="card-label">Tactic</span>
+                <h3>Ask Customers What Their Dream Tech Would Look Like</h3>
+                <p class="tagline">Remove psychological blocks by telling customers to assume anything is feasible and cost isn't a factor. Then prioritize the ideas by impact, cost, and returns.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> By removing constraints from the question, you unlock ideas customers would otherwise self-censor. This produces an avalanche of ideas. You evaluate them for impact, cost, and returns. The ones with the greatest value and highest potential return make the short list. You stack rank them, set an affordable budget, and execute. The same process works with employees and vendors.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> A disciplined innovation pipeline that's rooted in real customer desire rather than internal guesswork.</div>
+                <div class="example-phrase">"What capabilities would it have, what data would they want to push or pull, how would it help them succeed?"</div>
+            </div>
+
+            <div class="card" id="morale-exercises">
+                <span class="card-label resource">Resource</span>
+                <h3>Morale-Boosting Exercises to End Meetings</h3>
+                <p class="tagline">A rotating set of exercises that close every meeting on a high — from naming MVPs to resolving to improve something specific.</p>
+                <div class="field"><strong>What is actually happening underneath:</strong> Jacobs rotates exercises into the closing of each meeting, with all attendees participating. Examples: "Name someone in the room whose star went up during the meeting and say why." "Look directly at someone and say, 'I'm proud to be on the same team as you because...'" "Share your top two takeaways." "Resolve to do something to improve the company, and tell the group what it is." Plus a positivity exercise for important meetings: stand silently in a circle for about two minutes, look at each person one at a time, and sincerely think about what you respect about them.</div>
+                <div class="field green"><strong>Payoff or outcome:</strong> Meetings end on a note of genuine connection and positive energy rather than trailing off into logistics.</div>
+            </div>
+        </section>
+
+        <!-- ==================== CLOSING ==================== -->
+        <section id="closing">
+            <h2>Closing: The Overall Prescription</h2>
+            <div class="theory-prose">
+                <p>Brad Jacobs wants you to walk away with a single conviction: building enormous wealth isn't about being smarter than everyone else — it's about running a better operating system. That system has specific, learnable components: emotional regulation that keeps you clear under pressure, cognitive tools that override ancient survival programming, a relentless focus on major trends and scalability, an M&A engine built on cultural compatibility and speed, a talent filter that prioritizes intelligence, hunger, integrity, and collegiality above pedigree, and a communication philosophy that treats information flow as the company's circulatory system.</p>
+                <p>Every company Jacobs built — from a 23-year-old's oil arbitrage startup to a Fortune 500 logistics giant — used the same playbook. The specifics varied by industry, but the principles didn't. He wants you to steal that playbook wholesale, adapt it to your context, and run it harder than he did.</p>
+                <p>But underneath the tactics is something simpler: the belief that you have it in your own hands to make life meaningful or just pass time until you die. Jacobs still feels like a kid on the first day of that Rhode Island summer enrichment program. The difference is that now he knows what "all in" really means — and he's built a reference guide so you can find out too.</p>
+            </div>
+        </section>
+
+        <!-- ==================== SITUATIONAL INDEX ==================== -->
+        <section id="situational-index">
+            <h2>Situational Index — Reverse Lookup</h2>
+            <p class="section-intro">Find the right card fast. Each entry describes a real situation you might be in, followed by which card to consult.</p>
+            <div class="sit-index">
+                <dl>
+                    <dt>I'm in a tense negotiation and can feel myself getting reactive.</dt>
+                    <dd>→ <a href="#love-vibe">The Love Vibe</a> — shift your emotional state first, the room follows.</dd>
+                    <dt>My brain keeps telling me I'm going to fail / this deal will blow up.</dt>
+                    <dd>→ <a href="#expect-positive">Expect Positive Outcomes</a> — reframe negative automatic thoughts.</dd>
+                    <dt>I'm beating myself up over a mistake or paralyzed waiting for perfect conditions.</dt>
+                    <dd>→ <a href="#give-break">Give Yourself a Break — CBT</a> — spot cognitive distortions before they wreck you.</dd>
+                    <dt>I feel stuck, tunnel-visioned, fixated on one problem.</dt>
+                    <dd>→ <a href="#expand-possible">Expand the Possible</a> — use thought experiments to widen perspective.</dd>
+                    <dt>I'm exhausted and need instant mental rejuvenation.</dt>
+                    <dd>→ <a href="#feeling-brain">Feeling the Brain</a> — close your eyes and direct awareness inward.</dd>
+                    <dt>I can't stop judging everything as good or bad; I'm brooding.</dt>
+                    <dd>→ <a href="#non-judgmental">Non-Judgmental Concentration</a> — focus without bias.</dd>
+                    <dt>I'm holding onto a losing position because of what I've already invested.</dt>
+                    <dd>→ <a href="#radical-acceptance">Radical Acceptance</a> — accept reality, then decide forward.</dd>
+                    <dt>We just had a big win and I feel untouchable.</dt>
+                    <dd>→ <a href="#stay-humble">Stay Humble</a> — invincibility is the most dangerous state.</dd>
+                    <dt>I'm coasting or wondering if any of this matters.</dt>
+                    <dd>→ <a href="#lifelong-enrichment">Lifelong Enrichment Mindset</a> — go all in or you're just passing time.</dd>
+                    <dt>My brain is in a rut. I need to think differently.</dt>
+                    <dd>→ <a href="#thought-experiments">Nine Thought Experiments</a> — from the Big Bang to banana DNA.</dd>
+                    <dt>We hit a major setback and I'm overwhelmed with frustration.</dt>
+                    <dd>→ <a href="#embrace-problem">Embrace the Problem</a> — problems are assets to run toward.</dd>
+                    <dt>My team never pushes back on my ideas anymore.</dt>
+                    <dd>→ <a href="#not-perfect">Acknowledge You're Not Perfect</a> — check for the three leadership traps.</dd>
+                    <dt>I'm spread across too many moderate goals.</dt>
+                    <dd>→ <a href="#think-huge">Think Huge</a> — oversize your goals and narrow your focus.</dd>
+                    <dt>I'm optimizing operations but haven't checked if the macro trend still exists.</dt>
+                    <dd>→ <a href="#major-trend">Get the Major Trend Right</a> — be a futurist.</dd>
+                    <dt>A massive trend seems implausible and I'm tempted to dismiss it.</dt>
+                    <dd>→ <a href="#step-outside-noise">Step Outside the Noise</a> — even the smartest people discount change.</dd>
+                    <dt>I'm evaluating a business idea and need to know if it can scale.</dt>
+                    <dd>→ <a href="#scalability">Scalability</a> — the first thing to study.</dd>
+                    <dt>I'm trying to figure out which industry to enter.</dt>
+                    <dd>→ <a href="#obscene-profits">Obscene Profits</a> — find where enormous money is already being made.</dd>
+                    <dt>I'm looking at a messy, intimidating deal and don't know if it's worth it.</dt>
+                    <dd>→ <a href="#four-quadrants">M&A Four Quadrants</a> — the bingo quadrant is big, hairy, solvable.</dd>
+                    <dt>I need to understand where AI is taking everything.</dt>
+                    <dd>→ <a href="#ai-mothership">AI Is the Mothership</a> — the dominant megatrend.</dd>
+                    <dt>I'm thinking about supply chains and 3D printing.</dt>
+                    <dd>→ <a href="#trend-3d">3D Printing Trend Analysis</a>.</dd>
+                    <dt>I'm considering EVs for our fleet or as an investment theme.</dt>
+                    <dd>→ <a href="#trend-ev">Electric Vehicles Trend Analysis</a>.</dd>
+                    <dt>I'm evaluating an acquisition and building the financial model.</dt>
+                    <dd>→ <a href="#ma-arbitrage">The M&A Arbitrage</a> — buy at lower multiples, improve, repeat.</dd>
+                    <dt>I'm entering a new industry and need to get smart fast.</dt>
+                    <dd>→ <a href="#ask-experts">Take Questions to the Experts</a> — three-part methodology.</dd>
+                    <dt>Our due diligence is dragging on for months.</dt>
+                    <dd>→ <a href="#keep-pace">Keep Up the Pace</a> — do the work before first contact.</dd>
+                    <dt>We're about to approach a seller and I want to be ready.</dt>
+                    <dd>→ <a href="#pre-contact">Pre-Contact Research Checklist</a> — answer everything upfront.</dd>
+                    <dt>The seller is asking for weird terms that don't matter to me.</dt>
+                    <dd>→ <a href="#respect-seller">Respect the Seller</a> — say yes to everything non-essential.</dd>
+                    <dt>I'm worried the company we're buying has a totally different culture.</dt>
+                    <dd>→ <a href="#force-fit">Don't Force-Fit a Culture</a> — compatible ≠ identical.</dd>
+                    <dt>We just closed a deal. Now what?</dt>
+                    <dd>→ <a href="#integration">Integration Framework</a> — cultural first, then operational.</dd>
+                    <dt>The integration feels overwhelming with too many moving parts.</dt>
+                    <dd>→ <a href="#overorganize">Overorganize</a> — break into individual tasks with single owners.</dd>
+                    <dt>Newly acquired employees seem wary. How do I win them over?</dt>
+                    <dd>→ <a href="#early-feedback">Set Up Early Feedback Loops</a> — ask what to change, then listen.</dd>
+                    <dt>I'm about to address newly acquired employees for the first time.</dt>
+                    <dd>→ <a href="#dont-promise">Don't Promise What You Can't Deliver</a> — one honest promise only.</dd>
+                    <dt>The deal just went sideways due to something totally unexpected.</dt>
+                    <dd>→ <a href="#cover-flank">Cover Your Flank</a> — Cerberus and the $100M breakup fee.</dd>
+                    <dt>We're under attack — short-seller report, media storm, stock plunging.</dt>
+                    <dd>→ <a href="#cs-short-seller">XPO Short-Seller Attack Case Study</a>.</dd>
+                    <dt>We just lost a massive customer with no warning.</dt>
+                    <dd>→ <a href="#cs-revenue-loss">$600M Revenue Loss Case Study</a>.</dd>
+                    <dt>My team feels fragmented, everyone in silos.</dt>
+                    <dd>→ <a href="#superorganism">The Superorganism</a> — collaboration as culture.</dd>
+                    <dt>Someone on my team deserves recognition but I haven't expressed it.</dt>
+                    <dd>→ <a href="#gratitude">Gratitude Conversations</a> — notes-in-hand, one-on-one.</dd>
+                    <dt>Employees keep saying they want more communication from leadership.</dt>
+                    <dd>→ <a href="#overcommunicate">Over-Communicate</a> — there's no such thing as too much.</dd>
+                    <dt>I want people to tell me what's really going on.</dt>
+                    <dd>→ <a href="#become-listener">Become a Much Better Listener</a> — complete, non-judgmental attention.</dd>
+                    <dt>I'm about to hire for a key role and want a rigorous process.</dt>
+                    <dd>→ <a href="#four-qualities">Four Hiring Qualities</a> + <a href="#multi-source">Multiple Source Assessment</a> + <a href="#pre-interview">45 Pre-Interview Questions</a>.</dd>
+                    <dt>The candidate says they're not motivated by money.</dt>
+                    <dd>→ <a href="#hunger">Hunger</a> — red flag; compensation is the most effective tool.</dd>
+                    <dt>I caught someone in a small lie. Should I overlook it?</dt>
+                    <dd>→ <a href="#integrity-hire">Integrity</a> — small lies predict big lies.</dd>
+                    <dt>There's a brilliant jerk on the team who's dragging morale down.</dt>
+                    <dd>→ <a href="#collegiality">Collegiality</a> — even a very talented jerk isn't worth it.</dd>
+                    <dt>I'm not sure who my A players really are.</dt>
+                    <dd>→ <a href="#abc-players">A, B, and C Players</a> — the quitting thought experiment.</dd>
+                    <dt>I have a chronic underperformer who isn't causing overt trouble.</dt>
+                    <dd>→ <a href="#fire-c">Fire C Players, but Be Nice</a> — quiet underperformance is just as damaging.</dd>
+                    <dt>I'm losing top talent to competitors who pay more.</dt>
+                    <dd>→ <a href="#overpay">Overpay Your Employees</a> — penny wise, pound foolish.</dd>
+                    <dt>Our compensation plans are creating friction between sales and ops.</dt>
+                    <dd>→ <a href="#incentive-design">Incentive Compensation Design</a> — customize with domino effects in mind.</dd>
+                    <dt>Our meetings are passive, boring, and nothing gets decided.</dt>
+                    <dd>→ <a href="#electric-meetings">Electric Meetings</a> — Bennington-style engagement.</dd>
+                    <dt>We spend hours flipping through slides nobody read in advance.</dt>
+                    <dd>→ <a href="#mor">Monthly Operating Reviews</a> — pre-read, rank, then discuss.</dd>
+                    <dt>Too many people in the meeting and everyone's posturing.</dt>
+                    <dd>→ <a href="#keep-small">Keep It Small</a> — 15 to 20 max.</dd>
+                    <dt>Presenters are spinning their numbers and I can tell.</dt>
+                    <dd>→ <a href="#surprise-mods">Surprise Moderators</a> — neutral, from outside the unit.</dd>
+                    <dt>Everyone in the meeting agrees. That feels wrong.</dt>
+                    <dd>→ <a href="#conflicting-opinions">Explore Conflicting Opinions</a> — unanimous agreement is suspicious.</dd>
+                    <dt>I'm speaking at a conference and dreading the scripted panel.</dt>
+                    <dd>→ <a href="#crowdsource-ext">Crowdsourcing in External Meetings</a> — spontaneous Q&A instead.</dd>
+                    <dt>Side conversations and phones are killing our meeting focus.</dt>
+                    <dd>→ <a href="#few-rules">Set Few Rules, Cast in Stone</a> — four non-negotiables, real consequences.</dd>
+                    <dt>Someone just said something dumb and I want to correct them publicly.</dt>
+                    <dd>→ <a href="#validate">Validate, Don't Denigrate</a> — "I see your point, but..."</dd>
+                    <dt>My board feels like a rubber stamp. They're disengaged.</dt>
+                    <dd>→ <a href="#board-access">Give the Board Access</a> — full access, unvarnished honesty.</dd>
+                    <dt>I want to know what employees really think but surveys give garbage results.</dt>
+                    <dd>→ <a href="#employee-surveys">Employee Surveys</a> — four straight questions, share everything.</dd>
+                    <dt>I want to deepen customer relationships beyond transactions.</dt>
+                    <dd>→ <a href="#customer-feedback">Customer Feedback Loops</a> — audit their operations for free.</dd>
+                    <dt>We need innovation ideas but internal brainstorming is stale.</dt>
+                    <dd>→ <a href="#dream-tech">Ask Customers Dream Tech</a> — remove constraints, prioritize by impact.</dd>
+                    <dt>Meetings end on a flat note and people shuffle out.</dt>
+                    <dd>→ <a href="#morale-exercises">Morale-Boosting Exercises</a> — close on genuine connection.</dd>
+                </dl>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>Source: <em>How to Make a Few Billion Dollars</em> by Brad Jacobs. All concepts, examples, and case studies drawn directly from the book. Parenthetical explanations added for proper nouns a general reader might not recognise. This guide is a permanent working reference — detailed enough to reconstruct any concept without returning to the source, structured so any item can be found in under thirty seconds.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        (function() {
+            const nav = document.getElementById('nav');
+            const allDetails = nav.querySelectorAll('details');
+            const allLinks = nav.querySelectorAll('a[href^="#"]');
+            const headings = document.querySelectorAll('h2[id], h3[id], .card[id]');
+
+            // Scroll spy
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        allLinks.forEach(link => {
+                            link.classList.toggle('active-link', link.getAttribute('href') === '#' + id);
+                        });
+                        // Expand parent details
+                        const linkInNav = nav.querySelector('a[href="#' + id + '"]');
+                        if (linkInNav) {
+                            const parentDetails = linkInNav.closest('details');
+                            if (parentDetails && !parentDetails.open) {
+                                parentDetails.open = true;
+                            }
+                        }
+                    }
+                });
+            }, { rootMargin: '-60px 0px -70% 0px', threshold: 0 });
+
+            headings.forEach(h => observer.observe(h));
+
+            // On mobile, collapse nav details by default except first
+            if (window.innerWidth <= 720) {
+                allDetails.forEach((d, i) => {
+                    if (i > 0) d.open = false;
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
